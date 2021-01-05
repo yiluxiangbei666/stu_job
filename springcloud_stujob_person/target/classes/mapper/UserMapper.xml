@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="person.dao.userdao">
+    <select id="getUserList" resultType="person.bean.user">
+        select user_id,user_name,phone,password,sex,school,major,resume_url from user
+    </select>
+    <select id="getUserByPhone"  parameterType="java.lang.String" resultType="person.bean.user">
+        select user_id,user_name,phone,password,sex,school,major,resume_url from user where phone = #{phone}
+    </select>
+    <insert id="savaUser" parameterType="person.bean.user">
+        insert into user(user_id,user_name,phone,password,sex,school,major,resume_url)
+         values(#{user_id},#{user_name},#{phone},#{password},#{sex},#{school}
+         ,#{major},#{resume_url});
+    </insert>
+    <select id="getUserInfoByPhone" parameterType="java.lang.String" resultType="person.bean.user_moreinfo">
+        select user_phone,user_advantage,user_project,user_atschool_experience,user_head_img from user_moreinfo where user_phone = #{phone}
+    </select>
+    <update id="setUserHeadImg" parameterType="person.bean.user_moreinfo">
+        update user_moreinfo set user_head_img=#{user_head_img} where user_phone=#{user_phone}
+    </update>
+    <update id="update_resume_url" parameterType="person.bean.user">
+        update user set resume_url=#{resume_url} where phone=#{phone}
+    </update>
+    <update id="update_user" parameterType="person.bean.user">
+        update user <trim prefix="set" suffixOverrides=",">
+        <if test="user_name!=null">user_name=#{user_name},</if>
+        <if test="password!=null">password=#{password},</if>
+        <if test="sex!=null">sex=#{sex},</if>
+        <if test="school!=null">school=#{school},</if>
+        <if test="major!=null">major=#{major},</if>
+       </trim> where phone=#{phone};
+    </update>
+    <update id="update_user_info" parameterType="person.bean.user_moreinfo">
+        update user_moreinfo <trim prefix="set" suffixOverrides=",">
+        <if test="user_advantage!=null">user_advantage=#{user_advantage},</if>
+        <if test="user_project!=null">user_project=#{user_project},</if>
+        <if test="user_atschool_experience!=null">user_atschool_experience=#{user_atschool_experience},</if>
+    </trim> where user_phone=#{user_phone};
+    </update>
+    <insert id="insertuser_info" parameterType="person.bean.user_moreinfo">
+        insert into user_moreinfo(user_phone,user_advantage,user_project,user_atschool_experience,user_head_img)
+        values(#{user_phone},#{user_advantage},#{user_project},#{user_atschool_experience},#{user_head_img})
+    </insert>
+</mapper>

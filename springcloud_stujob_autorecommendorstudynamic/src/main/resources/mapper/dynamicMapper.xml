@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="autorecommendorstudynamic.dao.dynamicdao">
+    <insert id="adddynamic" parameterType="autorecommendorstudynamic.bean.dynamic">
+        insert into dynamic
+        (dynamic_id,dynamic_user_id,dynamic_content,dynamic_image_url,dynamic_send_time)
+         values(#{dynamic_id},#{dynamic_user_id},#{dynamic_content},#{dynamic_image_url},#{dynamic_send_time});
+    </insert>
+    <select id="getAllDynamic" resultType="autorecommendorstudynamic.bean.dynamic">
+        select dynamic_id,dynamic_user_id,dynamic_content,dynamic_image_url,dynamic_send_time from dynamic;
+    </select>
+</mapper>

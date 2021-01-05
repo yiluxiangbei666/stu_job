@@ -1,0 +1,31 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1/stujob_plat?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    lettuce:
+      shutdown-timeout: 0
+
+mybatis:
+  type-aliases-package:
+  mapper-locations: classpath:mapper/*.xml
+server:
+  port: 8003
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka

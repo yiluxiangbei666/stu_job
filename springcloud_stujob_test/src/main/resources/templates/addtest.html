@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 900px;
+            background: antiquewhite;
+        }
+        .content{
+            outline: none;
+        }
+        .content:empty:before{
+            content: attr(placeholder);
+            color: darkgrey;
+        }
+        /*焦点时内容为空*/
+        .content:focus:before{
+            content:none;
+        }
+    </style>
+    <script>
+        $(function () {
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                url: "/test/getCurrentUser",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data != null) {
+                        var phone = data;
+                        $("#loginphone").text(data);
+                    }
+                }
+            });
+        })
+        function addsubject(val) {
+            if($(val).is(':hidden')){
+                $(val).show();
+            }
+            else {
+                $(val).hide();
+            }
+            var subject="<div class=\"subject\" style=\"border: 1px solid skyblue;margin-top: 30px\">\n" +
+                "            <div name=\"subjectname\" class=\"content\" placeholder='请输入信息' contenteditable=\"true\" style=\"width: 100%;height: 100px;display:inline-block;box-sizing: border-box; direction: ltr; position: relative;will-change: transform; overflow: auto;\">\n" +
+                "\n" +
+                "            </div>\n" +
+                "            <div>\n" +
+                "                <span class=\"input-group-btn\" style=\"display: inline-block\">\n" +
+                "                    <button class=\"btn btn-default\" type=\"button\">A:</button>\n" +
+                "                </span>\n" +
+                "                <input name=\"A\" style=\"width: 95%;display: inline-block;float: right\" type=\"text\" class=\"form-control\">\n" +
+                "            </div>\n" +
+                "            <div>\n" +
+                "                <span class=\"input-group-btn\" style=\"display: inline-block\">\n" +
+                "                    <button class=\"btn btn-default\" type=\"button\">B:</button>\n" +
+                "                </span>\n" +
+                "                <input name=\"B\" style=\"width: 95%;display: inline-block;float: right\" type=\"text\" class=\"form-control\">\n" +
+                "            </div>\n" +
+                "            <div>\n" +
+                "                <span class=\"input-group-btn\" style=\"display: inline-block\">\n" +
+                "                    <button class=\"btn btn-default\" type=\"button\">C:</button>\n" +
+                "                </span>\n" +
+                "                <input name=\"C\" style=\"width: 95%;display: inline-block;float: right\" type=\"text\" class=\"form-control\">\n" +
+                "            </div>\n" +
+                "            <div>\n" +
+                "                <span class=\"input-group-btn\" style=\"display: inline-block\">\n" +
+                "                    <button class=\"btn btn-default\" type=\"button\">D:</button>\n" +
+                "                </span>\n" +
+                "                <input name=\"D\" style=\"width: 95%;display: inline-block;float: right\" type=\"text\" class=\"form-control\">\n" +
+                "            </div>\n" +
+                "            <div>\n" +
+                "                <input name=\"tureanswer\" placeholder=\"正确答案\" style=\"width: 100%;display: inline-block\" type=\"text\" class=\"form-control\">\n" +
+                "            </div>\n" +
+                "            <button onclick=\"addsubject(this)\" style=\"float: right\">再来一题</button>\n" +
+                "        </div>";
+            $("#subjectList").append(subject);
+        }
+        var a = new Array();
+        function submitObjectList() {
+            var subjectList=$("#subjectList").children();
+            var length=subjectList.length;
+            for(var i=0;i<length;i++){
+                a[i]=new Object();
+                var subjectname = subjectList.eq(i).children().eq(0).text();
+                var A=subjectList.eq(i).children().eq(1).children().eq(1).val();
+                var B=subjectList.eq(i).children().eq(2).children().eq(1).val();
+                var C=subjectList.eq(i).children().eq(3).children().eq(1).val();
+                var D=subjectList.eq(i).children().eq(4).children().eq(1).val();
+                var trueanswer=subjectList.eq(i).children().eq(5).children().eq(0).val();
+                a[i].subjectname=subjectname;
+                a[i].A=A;
+                a[i].B=B;
+                a[i].C=C;
+                a[i].D=D;
+                a[i].trueanswer=trueanswer;
+            }
+            var phone=$("#loginphone").text();
+            var position=$("#position").val();
+            var company=$("#company").val();
+            console.log(phone+" "+position+" "+company);
+            if(position!=null&&phone!=null&&company!=null&&a!=null){
+                $.ajax({
+                    //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                    data:{"a":JSON.stringify(a),"position":position,"phone":phone,"company":company},//向后台controller发送的数据
+                    // dataType:"json", //json格式解析返回数据
+                    type:"get",
+                    url:"/test/addsubjectList",
+                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest.status); //状态码
+                        console.log(XMLHttpRequest.readyState); //状态
+                        console.log(textStatus); //错误信息
+                    },
+                    success:function (data) {
+                        $("body").empty();
+                        var url="<h1 style=\"margin-left: 600px\">考试链接：http://localhost:8004/taketest</h1>";
+                        var textname="考试密钥："+data;
+                        var h1="<h1 style=\"margin-left: 600px\">"+textname+"</h1>";
+                        $("body").append(url);
+                        $("body").append(h1);
+                    }
+                });
+            }else {
+                alert("请仔细检查选项是否为空");
+            }
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/index">首页</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/homepage">职位</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user" id="loginphone">登录</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://localhost:8004/addtest">发布测评</a></li>
+                    <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                    <li><a href="/logout">退出</a></li>
+                </ul>
+            </li>
+            <li style="margin-right: 300px"><a href="http://localhost:8001/register"><span class="glyphicon glyphicon-log-in"></span>注册</a></li>
+        </ul>
+    </div>
+</nav>
+    <div style="width: 700px;background:white;height:170px;margin: auto;border-bottom: 1px solid black">
+        <div class="col-lg-6">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">发起者</button>
+            </span>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-6">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">公司</button>
+            </span>
+            <input id="company" type="text" class="form-control">
+        </div>
+        <div class="col-lg-6">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">职位名</button>
+            </span>
+            <input id="position" type="text" class="form-control">
+        </div>
+        <div class="col-lg-6">
+            <br>
+            <br>
+            <span style="margin-top: 20px" class="input-group-btn">
+                <button onclick="submitObjectList()" class="btn btn-default" type="button">提交</button>
+            </span>
+        </div>
+    </div>
+    <div id="subjectList" style="width: 700px;background: white;margin: auto">
+        <div class="subject" style="border: 1px solid skyblue;margin-top: 30px">
+            <div name="subjectname" class="content" placeholder='请输入信息' contenteditable="true" style="width: 100%;height: 100px;display:inline-block;box-sizing: border-box; direction: ltr; position: relative;will-change: transform; overflow: auto;">
+
+            </div>
+            <div>
+                <span class="input-group-btn" style="display: inline-block">
+                    <button class="btn btn-default" type="button">A:</button>
+                </span>
+                <input name="A" style="width: 95%;display: inline-block;float: right" type="text" class="form-control">
+            </div>
+            <div>
+                <span class="input-group-btn" style="display: inline-block">
+                    <button class="btn btn-default" type="button">B:</button>
+                </span>
+                <input name="B" style="width: 95%;display: inline-block;float: right" type="text" class="form-control">
+            </div>
+            <div>
+                <span class="input-group-btn" style="display: inline-block">
+                    <button class="btn btn-default" type="button">C:</button>
+                </span>
+                <input name="C" style="width: 95%;display: inline-block;float: right" type="text" class="form-control">
+            </div>
+            <div>
+                <span class="input-group-btn" style="display: inline-block">
+                    <button class="btn btn-default" type="button">D:</button>
+                </span>
+                <input name="D" style="width: 95%;display: inline-block;float: right" type="text" class="form-control">
+            </div>
+            <div>
+                <input name="tureanswer" placeholder="正确答案" style="width: 100%;display: inline-block" type="text" class="form-control">
+            </div>
+            <button onclick="addsubject(this)" style="float: right">再来一题</button>
+        </div>
+
+    </div>
+</body>
+</html>

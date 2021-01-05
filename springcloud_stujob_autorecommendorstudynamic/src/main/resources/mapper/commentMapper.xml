@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="autorecommendorstudynamic.dao.commentdao">
+    <insert id="addcomment" parameterType="autorecommendorstudynamic.bean.comment">
+        insert into comment(comment_id,comment_user_id,comment_usered_id,comment_time,comment_content,comment_image_url)
+        values(#{comment_id},#{comment_user_id},#{comment_usered_id},#{comment_time},#{comment_content},#{comment_image_url});
+    </insert>
+    <select id="getcommentListByDynamicId" parameterType="java.lang.String" resultType="autorecommendorstudynamic.bean.comment">
+        select comment_id,comment_user_id,comment_usered_id,comment_time,comment_content,comment_image_url
+        from comment where comment_usered_id=#{comment_usered_id};
+    </select>
+
+</mapper>

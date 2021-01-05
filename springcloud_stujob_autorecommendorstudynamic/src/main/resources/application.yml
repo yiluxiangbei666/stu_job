@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: stujob-autorecommendorstudyynamic
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1/stujob_plat?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 20000
+    database: 0
+    cache:
+      type: redis
+
+mybatis:
+  type-aliases-package:
+  mapper-locations: classpath:mapper/*.xml
+server:
+  port: 8002
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka

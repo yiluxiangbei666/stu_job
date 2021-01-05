@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 840px;
+            background: deepskyblue;
+        }
+        .main{
+            width: 600px;
+            height: 450px;
+            background: cyan;
+            margin-left: 34%;
+            margin-top: 4%;
+            border-radius: 20px;
+        }
+        .main_left{
+            width: 270px;
+            height: 420px;
+            display: inline-block;
+            float: left;
+        }
+        .main_right{
+            display: inline-block;
+            float: left;
+        }
+    </style>
+    <script>
+        var countdown=60;
+        function sendcode() {
+            codeinterval();
+            // var user_name=$("input[name='user_name']").val();
+            // var password=$("input[name='password']").val();
+            // var sex=$("input[name='sex']").val();
+            // var school=$("input[name='school']").val();
+            // var major=$("input[name='major']").val();
+            var phone=$("input[name='phone']").val();
+            console.log(phone);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {phone:phone},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/getPhoneCode",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+
+                }
+            });
+        }
+        function personregister() {
+            var user_name=$("input[name='user_name']").val();
+            var password=$("input[name='password']").val();
+            var sex=$("input[name='sex']").val();
+            var school=$("input[name='school']").val();
+            var major=$("input[name='major']").val();
+            var phone=$("input[name='phone']").val();
+            var phonecode=$("input[name='phonecode']").val();
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {user_name:user_name,phone:phone,password:password,sex:sex,school:school,major:major,phonecode:phonecode},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/personregister",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    if(data=="success"){
+                        alert("注册成功");
+                        window.location.href="/login";
+                    }
+                    else {
+                        alert(data);
+                    }
+                }
+            });
+        }
+        function codeinterval() {
+            var _generate_code = $("#sendcodebutton");
+            if (countdown == 0) {
+                _generate_code.attr("disabled",false);
+                _generate_code.text("获取验证码");
+                countdown = 60;
+                return false;
+            } else {
+                _generate_code.attr("disabled", true);
+                _generate_code.text("重新发送(" + countdown + ")");
+                countdown--;
+            }
+            setTimeout(function() {
+                codeinterval();
+            },1000);
+        }
+    </script>
+</head>
+<body>
+<div class="main" style="">
+    <div class="main_left">
+        <div class="main_left_left" style="margin-left: 40px;display: block;margin-top: 40px">
+            <div class="main_left_left_word" style="display: inline-block;float: left">
+                <a href="/login"><span style="color: gray;font-size: 24px;cursor: pointer;margin-left: 5px">返回登录</span></a>
+            </div>
+        </div><br><br><br><br>
+        <div class="main_left_left" style="margin-left: 40px;display: block;margin-top: 20px">
+            <div class="main_left_left_img" style="display: inline-block;width: 50px;float: left">
+                <img src="https://static.zhipin.com/v2/web/geek/images/logo.png" width="40px">
+            </div>
+            <div class="main_left_left_word" style="display: inline-block;float: left">
+                <span style="color: gray">找工作</span><br>
+                <span style="color: gray">我要跟老板交流</span>
+            </div>
+        </div><br><br><br><br>
+        <div class="main_left_left" style="margin-left: 40px;display: block">
+            <div class="main_left_left_img" style="display: inline-block;width: 50px;float: left">
+                <img src="https://static.zhipin.com/v2/web/geek/images/logo.png" width="40px">
+            </div>
+            <div class="main_left_left_word" style="display: inline-block;float: left">
+                <span style="color: gray">沟通</span><br>
+                <span style="color: gray">在线职位及时沟通</span>
+            </div>
+        </div><br><br><br><br>
+        <div class="main_left_left" style="margin-left: 40px;display: block">
+            <div class="main_left_left_img" style="display: inline-block;width: 50px;float: left">
+                <img src="https://static.zhipin.com/v2/web/geek/images/logo.png" width="40px">
+            </div>
+            <div class="main_left_left_word" style="display: inline-block;float: left">
+                <span style="color: gray">任性选</span><br>
+                <span style="color: gray">各大行业任你选</span>
+            </div>
+        </div>
+    </div>
+    <div class="main_right">
+        <div style="margin-top: 30px">
+            <div class="row" style="width: 350px;margin-top: 20px">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" name="user_name" class="form-control" style="width: 287px" placeholder="用户名">
+                    </div>
+                </div><!-- /.col-lg-6 --><br>
+            </div><!-- /.row -->
+            <div class="row" style="width: 350px;margin-top: 20px">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" name="password" class="form-control" style="width: 287px" placeholder="密码">
+                    </div>
+                </div><!-- /.col-lg-6 --><br>
+            </div><!-- /.row -->
+            <div class="row" style="width: 350px;margin-top: 20px">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" name="sex" class="form-control" style="width: 287px" placeholder="性别">
+                    </div>
+                </div><!-- /.col-lg-6 --><br>
+            </div><!-- /.row -->
+            <div class="row" style="width: 350px;margin-top: 20px">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" name="school" class="form-control" style="width: 287px" placeholder="学校">
+                    </div>
+                </div><!-- /.col-lg-6 --><br>
+            </div><!-- /.row -->
+            <div class="row" style="width: 350px;margin-top: 20px">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" name="major" class="form-control" style="width: 287px" placeholder="专业">
+                    </div>
+                </div><!-- /.col-lg-6 --><br>
+            </div><!-- /.row -->
+            <div class="row" style="width: 350px;margin-top: 20px">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" tabindex="-1">+86
+                            </button>
+                            <button style="width: 40px" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                                <span class="caret"></span>
+                                <span class="sr-only">+86</span>
+                            </button>
+                            <ul class="dropdown-menu" style="width: 40px">
+                                <li><a href="#">国内</a></li>
+                                <li><a href="#">国外</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                        <input type="text" name="phone" class="form-control" style="width: 200px" placeholder="手机号">
+                    </div><!-- /input-group -->
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <input name="phonecode" type="text" class="form-control" style="width: 190px" placeholder="验证码">
+                        </div><!-- /btn-group -->
+                        <button id="sendcodebutton" onclick="sendcode()" type="button" class="btn btn-default btn-sm" style="width: 97px;height: 34px">发送验证码</button>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 --><br>
+            </div><!-- /.row -->
+            <div class="row" style="width: 350px;margin-top: 20px">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input onclick="personregister()" type="submit" value="注册" class="form-control" style="width: 287px">
+                    </div>
+                </div><!-- /.col-lg-6 --><br>
+            </div><!-- /.row -->
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

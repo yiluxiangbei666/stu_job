@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_eurake7001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_eurake7001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_person/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_person/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud_stujob_test/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

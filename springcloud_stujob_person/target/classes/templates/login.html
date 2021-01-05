@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 840px;
+            background: deepskyblue;
+        }
+        .main{
+            width: 600px;
+            height: 450px;
+            background: cyan;
+            margin-left: 34%;
+            margin-top: 4%;
+            border-radius: 20px;
+        }
+        .main_left{
+            width: 270px;
+            height: 420px;
+            display: inline-block;
+            float: left;
+        }
+        .main_right{
+            display: inline-block;
+            float: left;
+        }
+    </style>
+    <script>
+        function adduser() {
+            window.location.href="/register";
+        }
+    </script>
+</head>
+    <body>
+        <div class="main" style="">
+            <div class="main_left">
+                <div class="main_left_left" style="margin-left: 40px;display: block;margin-top: 100px">
+                    <div class="main_left_left_img" style="display: inline-block;width: 50px;float: left">
+                        <img src="https://static.zhipin.com/v2/web/geek/images/logo.png" width="40px">
+                    </div>
+                    <div class="main_left_left_word" style="display: inline-block;float: left">
+                        <span style="color: gray">找工作</span><br>
+                        <span style="color: gray">我要跟老板交流</span>
+                    </div>
+                </div><br><br><br><br>
+                <div class="main_left_left" style="margin-left: 40px;display: block">
+                    <div class="main_left_left_img" style="display: inline-block;width: 50px;float: left">
+                        <img src="https://static.zhipin.com/v2/web/geek/images/logo.png" width="40px">
+                    </div>
+                    <div class="main_left_left_word" style="display: inline-block;float: left">
+                        <span style="color: gray">沟通</span><br>
+                        <span style="color: gray">在线职位及时沟通</span>
+                    </div>
+                </div><br><br><br><br>
+                <div class="main_left_left" style="margin-left: 40px;display: block">
+                    <div class="main_left_left_img" style="display: inline-block;width: 50px;float: left">
+                        <img src="https://static.zhipin.com/v2/web/geek/images/logo.png" width="40px">
+                    </div>
+                    <div class="main_left_left_word" style="display: inline-block;float: left">
+                        <span style="color: gray">任性选</span><br>
+                        <span style="color: gray">各大行业任你选</span>
+                    </div>
+                </div>
+            </div>
+            <div class="main_right">
+                <form action="/login" method="post">
+                    <div style="margin-top: 95px">
+                        <div style="margin-bottom: 20px">
+                            <p>
+                                <button type="button" class="btn btn-default btn-lg " style="width: 132px">密码登录</button>
+                                <button type="button" class="btn btn-default btn-lg " style="margin-left: 15px;width: 134px">短信登录</button>
+                            </p>
+                        </div>
+                        <div class="row" style="width: 350px;">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default" tabindex="-1">+86
+                                        </button>
+                                        <button style="width: 40px" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">+86</span>
+                                        </button>
+                                        <ul class="dropdown-menu" style="width: 40px">
+                                            <li><a href="#">国内</a></li>
+                                            <li><a href="#">国外</a></li>
+                                        </ul>
+                                    </div><!-- /btn-group -->
+                                    <input type="text" name="username" class="form-control" style="width: 200px" placeholder="手机号">
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 --><br>
+                        </div><!-- /.row -->
+                        <div class="row" style="width: 350px;margin-top: 20px">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <input type="text" name="password" class="form-control" style="width: 287px" placeholder="密码">
+                                </div>
+                            </div><!-- /.col-lg-6 --><br>
+                        </div><!-- /.row -->
+                        <div class="row" style="width: 350px;margin-top: 20px">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <input type="submit" value="提交" class="form-control" style="width: 287px">
+                                </div>
+                            </div><!-- /.col-lg-6 --><br>
+                        </div><!-- /.row -->
+                    </div>
+                    <div style="margin-top: 20px">
+                        <button type="button" class="btn btn-default btn-sm">微信登录</button>
+                        <button type="button" class="btn btn-default btn-sm" style="margin-left: 35px">扫码登录</button>
+                        <button onclick="adduser()" type="button" class="btn btn-default btn-sm" style="margin-left: 35px">免费注册</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

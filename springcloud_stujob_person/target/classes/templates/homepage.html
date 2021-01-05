@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 900px;
+            background: antiquewhite;
+        }
+    </style>
+    <script>
+        var pageNo;
+        var pageSize;
+        var keyword;
+        $(function () {
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/getCurrentUser",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    console.log(data);
+                    if(data!=null){
+                        var phone=data;
+                        $("#loginphone").text(data);
+                        var phone= $("#loginphone").text();
+                        $("input[name='position_send_userphone']").val(phone);
+                    }
+                }
+            });
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/getCurrentUser",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    console.log(data);
+                    if(data!=null){
+                        var phone=data;
+                        $("#loginphone").text(data);
+                        $.ajax({
+                            //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                            data:{phone:phone},//向后台controller发送的数据
+                            // dataType:"json", //json格式解析返回数据
+                            type:"get",
+                            url:"/user/getUserInfo",
+                            error:function (XMLHttpRequest, textStatus, errorThrown) {
+                                console.log(XMLHttpRequest.status); //状态码
+                                console.log(XMLHttpRequest.readyState); //状态
+                                console.log(textStatus); //错误信息
+                            },
+                            success:function (data) {
+                                var resume_url=$("span[name='resume_url']").html(data[0].resume_url);
+                                document.getElementById('img').src="file/"+data[1].user_head_img;
+                                $("img[name='user_head_img']").src=data[1].user_head_img;
+                            }
+                        });
+                    }
+                }
+            });
+            keyword="java工程师";
+            pageNo=0;
+            pageSize=6;
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{keyword:keyword,pageNo:pageNo,pageSize:pageSize},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/getposition",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    for(var i=0;i<data.length;i++){
+                        var position_name=data[i].position_name;
+                        var position_money=data[i].position_money;
+                        var position_send_userphone=data[i].position_send_userphone;
+                        var arr=new Array();
+                        arr= data[i].position_demand.toString().split(':');
+                        arr[0]==undefined?"未开放":arr[0];
+                        arr[1]==undefined?"未开放":arr[1];
+                        arr[2]==undefined?"未开放":arr[2];
+                        var position_walfare=data[i].position_walfare==undefined?"未开放":data[i].position_walfare;
+                        var company_name=data[i].company_name;
+                        var position="<div class=\"position\" style=\"border: 1px solid black;margin-top:20px \">\n" +
+                            "                <div class=\"position_left\" style=\"margin-left: 30px;width: 480px;height: 90px;display: inline-block\">\n" +
+                            "                    <div class=\"job_title\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">"+position_name+"</span>&nbsp;&nbsp;&nbsp;<span style=\"color: #9fa3b0\">[中山]</span>\n" +
+                            "                    </div>\n" +
+                            "                    <div style=\"margin-top: 10px\">\n" +
+                            "                        <a style=\"text-decoration: none;color: white\">\n" +
+                            "                            <span style=\"color: #fc703e\">"+position_money+"</span>\n" +
+                            "                            <span style=\"color: black\">本科</span>\n" +
+                            "                        </a>\n" +
+                            "                        &nbsp;&nbsp;&nbsp;\n" +
+                            "                        <a style=\"text-decoration: none;color: white\">\n" +
+                            "                            <img width=\"20px\" src=\"https://z.zhipin.com/web/geek/resource/icon-chat-v2.png\">\n" +
+                            "                            <span style=\"color: black\">沟通</span>\n" +
+                            "                        </a>\n" +
+                            "                        <br>\n" +
+                            "                        <div class=\"btn-group btn-group-xs\" style=\"margin-top: 5px\">\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 0px\">"+arr[0]+"</button>\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 10px\">"+arr[1]+"</button>\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 10px\">"+arr[2]+"</button>\n" +
+                            "                        </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "                <div class=\"postion_right\" style=\"width: 330px;height: 90px;display: inline-block;margin-left: 20px\">\n" +
+                            "                    <div class=\"company_title\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">"+company_name+"</span>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"company_introduction\" style=\"margin-top: 10px\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">计算机软件</span>&nbsp;&nbsp;<span style=\"color: #9fa3b0\">|</span>\n" +
+                            "                        <span style=\"color: #9fa3b0\">不需要融资</span><span style=\'display: none\'>"+position_send_userphone+"</span><button data-toggle=\"modal\" data-target=\"#myModal1\" onclick=\'Contact(this)\' style='float: right'>联系他</button>\n" +
+                            "                        <div style=\"margin-top: 10px\">\n" +
+                            "                            <span style=\"color: #9fa3b0\">"+position_walfare+"</span>\n" +
+                            "                        </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>";
+                        $(".person_left").prepend(position);
+                    }
+                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left: 500px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
+                    $(".person_left").prepend(addpositionbutton);
+                    var searchbutton ="<button onclick=\"search()\" type=\"button\" class=\"btn btn-default\">查询</button>"
+                    $(".person_left").prepend(searchbutton);
+                    var position="<span>职位</span>\n" +
+                        "                <input type=\"text\" id=\"searchpositionkey\">";
+                    $(".person_left").prepend(position);
+                }
+            });
+        });
+        function prepage() {
+            if(pageNo==0){
+                alert("这已经是第一页");
+            }
+            keyword=keyword;
+            pageNo=pageNo-6;
+            if(pageNo<0){
+                pageNo=0;
+            }
+            pageSize=6;
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{keyword:keyword,pageNo:pageNo,pageSize:pageSize},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/getposition",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    $(".person_left").empty();
+                    for(var i=0;i<data.length;i++){
+                        var position_name=data[i].position_name;
+                        var position_money=data[i].position_money;
+                        var position_send_userphone=data[i].position_send_userphone;
+                        var arr=new Array();
+                        arr= data[i].position_demand.toString().split(':');
+                        arr[0]==undefined?"未开放":arr[0];
+                        arr[1]==undefined?"未开放":arr[1];
+                        arr[2]==undefined?"未开放":arr[2];
+                        var position_walfare=data[i].position_walfare==undefined?"未开放":data[i].position_walfare;
+                        var company_name=data[i].company_name;
+                        var position="<div class=\"position\" style=\"border: 1px solid black;margin-top:20px \">\n" +
+                            "                <div class=\"position_left\" style=\"margin-left: 30px;width: 480px;height: 90px;display: inline-block\">\n" +
+                            "                    <div class=\"job_title\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">"+position_name+"</span>&nbsp;&nbsp;&nbsp;<span style=\"color: #9fa3b0\">[中山]</span>\n" +
+                            "                    </div>\n" +
+                            "                    <div style=\"margin-top: 10px\">\n" +
+                            "                        <a style=\"text-decoration: none;color: white\">\n" +
+                            "                            <span style=\"color: #fc703e\">"+position_money+"</span>\n" +
+                            "                            <span style=\"color: black\">本科</span>\n" +
+                            "                        </a>\n" +
+                            "                        &nbsp;&nbsp;&nbsp;\n" +
+                            "                        <a style=\"text-decoration: none;color: white\">\n" +
+                            "                            <img width=\"20px\" src=\"https://z.zhipin.com/web/geek/resource/icon-chat-v2.png\">\n" +
+                            "                            <span style=\"color: black\">沟通</span>\n" +
+                            "                        </a>\n" +
+                            "                        <br>\n" +
+                            "                        <div class=\"btn-group btn-group-xs\" style=\"margin-top: 5px\">\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 0px\">"+arr[0]+"</button>\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 10px\">"+arr[1]+"</button>\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 10px\">"+arr[2]+"</button>\n" +
+                            "                        </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "                <div class=\"postion_right\" style=\"width: 330px;height: 90px;display: inline-block;margin-left: 20px\">\n" +
+                            "                    <div class=\"company_title\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">"+company_name+"</span>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"company_introduction\" style=\"margin-top: 10px\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">计算机软件</span>&nbsp;&nbsp;<span style=\"color: #9fa3b0\">|</span>\n" +
+                            "                        <span style=\"color: #9fa3b0\">不需要融资</span><span style=\'display: none\'>"+position_send_userphone+"</span><button data-toggle=\"modal\" data-target=\"#myModal1\" onclick=\'Contact(this)\' style='float: right'>联系他</button>\n" +
+                            "                        <div style=\"margin-top: 10px\">\n" +
+                            "                            <span style=\"color: #9fa3b0\">"+position_walfare+"</span>\n" +
+                            "                        </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>";
+                        $(".person_left").prepend(position);
+                    }
+                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left: 500px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
+                    $(".person_left").prepend(addpositionbutton);
+                    var searchbutton ="<button onclick=\"search()\" type=\"button\" class=\"btn btn-default\">查询</button>"
+                    $(".person_left").prepend(searchbutton);
+                    var position="<span>职位</span>\n" +
+                        "                <input type=\"text\" id=\"searchpositionkey\">";
+                    $(".person_left").prepend(position);
+                    var button="<div style=\"width: 140px;height: 200px;margin-left: 45%;margin-bottom: 50px;\">\n" +
+                        "                <button onclick=\"prepage()\" type=\"button\" class=\"btn btn-default\">上一页</button>\n" +
+                        "                <button onclick=\"nextpage()\" type=\"button\" class=\"btn btn-default\">下一页</button>\n" +
+                        "            </div>";
+                    $(".person_left").append(button);
+                }
+            });
+        }
+        function nextpage() {
+            keyword=keyword;
+            pageNo=pageNo+6;
+            pageSize=6;
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{keyword:keyword,pageNo:pageNo,pageSize:pageSize},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/getposition",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    $(".person_left").empty();
+                    for(var i=0;i<data.length;i++){
+                        var position_name=data[i].position_name;
+                        var position_money=data[i].position_money;
+                        var position_send_userphone=data[i].position_send_userphone;
+                        var arr=new Array();
+                        arr= data[i].position_demand.toString().split(':');
+                        arr[0]==undefined?"未开放":arr[0];
+                        arr[1]==undefined?"未开放":arr[1];
+                        arr[2]==undefined?"未开放":arr[2];
+                        var position_walfare=data[i].position_walfare==undefined?"未开放":data[i].position_walfare;
+                        var company_name=data[i].company_name;
+                        var position="<div class=\"position\" style=\"border: 1px solid black;margin-top:20px \">\n" +
+                            "                <div class=\"position_left\" style=\"margin-left: 30px;width: 480px;height: 90px;display: inline-block\">\n" +
+                            "                    <div class=\"job_title\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">"+position_name+"</span>&nbsp;&nbsp;&nbsp;<span style=\"color: #9fa3b0\">[中山]</span>\n" +
+                            "                    </div>\n" +
+                            "                    <div style=\"margin-top: 10px\">\n" +
+                            "                        <a style=\"text-decoration: none;color: white\">\n" +
+                            "                            <span style=\"color: #fc703e\">"+position_money+"</span>\n" +
+                            "                            <span style=\"color: black\">本科</span>\n" +
+                            "                        </a>\n" +
+                            "                        &nbsp;&nbsp;&nbsp;\n" +
+                            "                        <a style=\"text-decoration: none;color: white\">\n" +
+                            "                            <img width=\"20px\" src=\"https://z.zhipin.com/web/geek/resource/icon-chat-v2.png\">\n" +
+                            "                            <span style=\"color: black\">沟通</span>\n" +
+                            "                        </a>\n" +
+                            "                        <br>\n" +
+                            "                        <div class=\"btn-group btn-group-xs\" style=\"margin-top: 5px\">\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 0px\">"+arr[0]+"</button>\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 10px\">"+arr[1]+"</button>\n" +
+                            "                            <button type=\"button\" class=\"btn btn-default\" style=\"margin-left: 10px\">"+arr[2]+"</button>\n" +
+                            "                        </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "                <div class=\"postion_right\" style=\"width: 330px;height: 90px;display: inline-block;margin-left: 20px\">\n" +
+                            "                    <div class=\"company_title\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">"+company_name+"</span>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"company_introduction\" style=\"margin-top: 10px\">\n" +
+                            "                        <span style=\"color: #9fa3b0\">计算机软件</span>&nbsp;&nbsp;<span style=\"color: #9fa3b0\">|</span>\n" +
+                            "                        <span style=\"color: #9fa3b0\">不需要融资</span><span style=\'display: none\'>"+position_send_userphone+"</span><button data-toggle=\"modal\" data-target=\"#myModal1\" onclick=\'Contact(this)\' style='float: right'>联系他</button>\n" +
+                            "                        <div style=\"margin-top: 10px\">\n" +
+                            "                            <span style=\"color: #9fa3b0\">"+position_walfare+"</span>\n" +
+                            "                        </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>";
+                        $(".person_left").prepend(position);
+                    }
+                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left: 500px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
+                    $(".person_left").prepend(addpositionbutton);
+                    var searchbutton ="<button onclick=\"search()\" type=\"button\" class=\"btn btn-default\">查询</button>"
+                    $(".person_left").prepend(searchbutton);
+                    var position="<span>职位</span>\n" +
+                        "                <input type=\"text\" id=\"searchpositionkey\">";
+                    $(".person_left").prepend(position);
+                    var button="<div style=\"width: 140px;height: 200px;margin-left: 45%;margin-bottom: 50px;\">\n" +
+                        "                <button onclick=\"prepage()\" type=\"button\" class=\"btn btn-default\">上一页</button>\n" +
+                        "                <button onclick=\"nextpage()\" type=\"button\" class=\"btn btn-default\">下一页</button>\n" +
+                        "            </div>";
+                    $(".person_left").append(button);
+                }
+            });
+        }
+        function search() {
+            keyword=$("#searchpositionkey").val()==""?"java开发工程师":$("#searchpositionkey").val();
+            pageNo=-6;
+            nextpage();
+        }
+        function addposition() {
+            var company_name=$("input[name='company_name']").val();
+            var position_demand=$("input[name='position_demand']").val();
+            var position_money=$("input[name='position_money']").val();
+            var position_name=$("input[name='position_name']").val();
+            var position_walfare=$("input[name='position_walfare']").val();
+            var position_send_userphone=$("input[name='position_send_userphone']").val();
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{company_name:company_name,position_demand:position_demand,
+                    position_money:position_money,position_name:position_name,
+                    position_walfare:position_walfare,position_send_userphone:position_send_userphone
+                },//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/addPosition",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    if(data=="success"){
+                        alert("职位添加成功");
+                    }
+                    else {
+                        alert("添加失败，请重新添加");
+                    }
+                }
+            });
+        }
+        var ws;
+        var toUser;
+        function Contact(val) {
+            toUser=$(val).prev().text();
+            $("#chatname").text(toUser);
+            if ("WebSocket" in window)
+            {
+                var sendUser = $("#loginphone").text();
+                // 打开一个 web socket
+                ws = new WebSocket("ws://localhost:8001/chatDemo/"+sendUser);
+                ws.onopen = function()
+                {
+                    console.log("连接服务器成功");
+                };
+                ws.onmessage = function (event)
+                {
+                    if(event.data.indexOf("count")>-1){
+
+                    }else {
+                        setMessageInnerHTML(event.data);
+                    }
+                };
+
+                ws.onclose = function()
+                {
+                    console.log("连接被成功关闭");
+                };
+                window.onbeforeunload=function () {
+                    ws.close();
+                }
+            }
+            else
+            {
+                // 浏览器不支持 WebSocket
+                alert("您的浏览器不支持 WebSocket!");
+            }
+            var sendUser = $("#loginphone").text();
+            toUser=toUser;
+            var a = new Array();
+            var index=0;
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{chat_user_id:sendUser,chat_usered_id:toUser},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                async:false,
+                url:"/user/getchatList",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    for(var i=0;i<data.length;i++){
+                        a[index]=data[i];
+                        index++;
+                    }
+                }
+            });
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{chat_user_id:toUser,chat_usered_id:sendUser},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                async:false,
+                url:"/user/getchatList",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    for(var i=0;i<data.length;i++){
+                        a[index]=data[i];
+                        index++;
+                    }
+                }
+            });
+            a.sort(function(b,c){
+                if(b.chat_send_time>c.chat_send_time) return 1 ;
+                if(b.chat_send_time<c.chat_send_time) return -1 ;
+                return 0 ;
+            });
+            console.log(a);
+           for(var i=0;i<a.length;i++){
+
+               if(a[i].chat_user_id==sendUser){
+                   var message="<div class=\"youronemessage\" style=\"width: 70%;margin-top: 15px;float: right\">\n" +
+                       "                                        <img src=\"/img/好友详情.png\" alt=\"\" width=\"20px\" style=\"float: right;\">\n" +
+                       "                                        <span style=\"float:right;margin-right: 20px;width: 60%;height: 80px;word-break:normal; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;\">"+a[i].chat_send_content+"</span>\n" +
+                       "                                    </div>";
+                   $("#chatcontext").append(message);
+               }
+               if(a[i].chat_user_id==toUser){
+                   var message="<div class=\"myonemessage\" style=\"width: 70%;margin-top: 15px;float: left\">\n" +
+                       "                                        <img src=\"/img/好友详情.png\" alt=\"\" width=\"20px\">&nbsp;&nbsp;\n" +
+                       "                                        <span style=\"width: 70%;margin-left:20px;height: 80px;word-break:normal; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;\">"+a[i].chat_send_content+"</span>\n" +
+                       "                                    </div>";
+                   $("#chatcontext").append(message);
+               }
+           }
+        }
+        //将消息显示在网页上
+        function setMessageInnerHTML(innerHTML){
+            var message="<div class=\"myonemessage\" style=\"width: 70%;margin-top: 15px;float: left\">\n" +
+                "                                        <img src=\"/img/好友详情.png\" alt=\"\" width=\"20px\">&nbsp;&nbsp;\n" +
+                "                                        <span style=\"width: 70%;margin-left:20px;height: 80px;word-break:normal; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;\">"+innerHTML+"</span>\n" +
+                "                                    </div>";
+            $("#chatcontext").append(message);
+        }
+
+        //关闭连接
+        function closeWebSocket(){
+            ws.close();
+        }
+        function closechat() {
+            $("#chatcontext").empty();
+        }
+        //发送消息
+        function send(){
+            var sendUser = $("#loginphone").text();
+            toUser=toUser;
+            var message = $("#contenttext").html();
+            var jsonMsg = {"sendUser":sendUser,"toUser":toUser,"message":message}
+            ws.send(JSON.stringify(jsonMsg));
+            var message="<div class=\"youronemessage\" style=\"width: 70%;margin-top: 15px;float: right\">\n" +
+                "                                        <img src=\"/img/好友详情.png\" alt=\"\" width=\"20px\" style=\"float: right;\">\n" +
+                "                                        <span style=\"float:right;margin-right: 20px;width: 70%;height: 80px;word-break:normal; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;\">"+message+"</span>\n" +
+                "                                    </div>";
+            $("#chatcontext").append(message);
+            $("#contenttext").empty();
+        }
+        function clickchatfile1() {
+            $("#chatupfile").click();
+        }
+        function chatupfile1() {
+            var filename=$("#chatupfile").val().toString()+"";
+            var str="\\";
+            var index=filename.lastIndexOf(str);
+            console.log(index);
+            filename="file\\"+filename.substring(index+1);
+            var a="<a href=\""+filename+"\">"+filename+"</a>";
+            $("#contenttext").append(a);
+            var file=document.getElementById("chatupfile").files[0];
+            var form = new FormData();
+            form.append("file", file);
+            console.log(file);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:form,//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"post",
+                processData: false,
+                contentType: false,
+                url:"/user/upfile",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    alert("发送成功");
+                }
+            });
+            send();
+        }
+        function uploadfile() {
+            document.getElementById("upfile").click();
+        }
+        function showfilename() {
+            var file=document.getElementById("upfile").files[0];
+            var reader=new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload=function (e) {
+                var result = reader.result;
+                document.getElementById('img').src=result;
+            }
+            var phone=$("#loginphone").text();
+            var form = new FormData();
+            file=new File([file],phone+"head"+".jpg",{type:"image/jpeg"});
+            form.append("phone", phone);
+            form.append("file", file);
+            console.log(phone+" "+file);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:form,//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"post",
+                processData: false,
+                contentType: false,
+                url:"/user/updateUser_head_img",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    var user_name=$("input[name='user_name']").val(data[0].user_name);
+                    var password=$("input[name='password']").val(data[0].password);
+                    var sex=$("input[name='sex']").val(data[0].sex);
+                    var school=$("input[name='school']").val(data[0].school);
+                    var major=$("input[name='major']").val(data[0].major);
+                    var phone=$("input[name='phone']").val(data[0].phone);
+                }
+            });
+        }
+        function uploadresume() {
+            document.getElementById("resumefile").click();
+        }
+        function resumefile() {
+            let file=document.getElementById("resumefile").files[0];
+            $("#resumefilename>span").text(file.name);
+            var phone=$("input[name='phone']").val();
+            var form = new FormData();
+            file=new File([file],phone+"resume"+".pdf",{type:"image/jpeg"});
+            form.append("phone", phone);
+            form.append("file", file);
+            console.log(phone+" "+file);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:form,//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"post",
+                processData: false,
+                contentType: false,
+                url:"/user/update_resume_url",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+
+                }
+            });
+        }
+        function closeuser() {
+            alert("aa");
+            $("#closeuser").click();
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/index">首页</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/homepage">职位</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user" id="loginphone">登录</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://localhost:8004/addtest">发布测评</a></li>
+                    <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                    <li><a href="/logout">退出</a></li>
+                </ul>
+            </li>
+            <li style="margin-right: 300px"><a href="http://localhost:8001/register"><span class="glyphicon glyphicon-log-in"></span>注册</a></li>
+        </ul>
+    </div>
+</nav>
+    <div style="width: 1330px;height: 850px;background: white;margin: auto">
+        <div class="person_left" style="width: 980px;height:840px;margin-left: 20px;display: inline-block;">
+            <div style="width: 140px;height: 200px;margin-left: 45%;margin-bottom: 50px;">
+                <button onclick="prepage()" type="button" class="btn btn-default">上一页</button>
+                <button onclick="nextpage()" type="button" class="btn btn-default">下一页</button>
+            </div>
+        </div>
+        <div class="person_right" style="width: 300px;height: 850px;display: inline-block;float: left;background: skyblue">
+            <div style="width: 80%;margin: auto;margin-top: 40px">
+                <span style="font-size: 24px">附件管理</span>
+                <input onchange="showfilename()" accept=".jpg,.png" style="display: none" id="upfile" type="file"  />
+                <div><img name="user_head_img" id="img" src="" width="230px" height="200" style="border-radius: 50%"></div>
+                <button type="button" onclick="uploadfile()" class="btn btn-default btn-lg btn-block">我的头像</button>
+                <input onchange="resumefile()" accept=".pdf" style="display: none" id="resumefile" type="file"  />
+                <div id="resumefilename"><span name="resume_url" style="font-size: 21px;margin-left: 5px"></span></div>
+                <button type="button" onclick="uploadresume()" class="btn btn-default btn-lg btn-block">我的简历</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">添加职位信息</h4>
+                </div>
+                <div class="modal-body" style="height: 260px">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">公司名</label>
+                        <div class="col-sm-10">
+                            <input name="company_name" type="text" class="form-control" placeholder="请输入公司名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">职位要求</label>
+                        <div class="col-sm-10">
+                            <input name="position_demand" type="text" class="form-control" placeholder="请输入职位要求:隔开">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">薪资</label>
+                        <div class="col-sm-10">
+                            <input name="position_money" type="text" class="form-control" placeholder="请输入职位薪资">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">职位名</label>
+                        <div class="col-sm-10">
+                            <input name="position_name" type="text" class="form-control" placeholder="请输入职位名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">职位福利</label>
+                        <div class="col-sm-10">
+                            <input name="position_walfare" type="text" class="form-control" placeholder="请输入职位福利">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">发布者电话</label>
+                        <div class="col-sm-10">
+                            <input disabled name="position_send_userphone" type="text" class="form-control" placeholder="请输入发布者电话">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button onclick="addposition()" type="button" data-dismiss="modal" class="btn btn-primary">提交更改</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+                <div class="modal-body">
+                    <div class="dialogue-container" style="border: 1px solid #ededeb; float: left;display: inline-block;margin-left: 8px; width: 645px;height: 600px;background: white">
+                        <div style="width: 100%;height: 54px;margin-top: 10px;border-bottom: 1px solid skyblue">
+                            <span id="chatname"></span>&nbsp;&nbsp;&nbsp;
+                            <span onclick="closechat()" data-dismiss="modal" style="float: right; margin-right: 20px;cursor: pointer">x</span>
+                        </div>
+                        <div style="width: 100%;height: 350px;border-bottom: 1px solid skyblue;display:inline-block;box-sizing: border-box; direction: ltr; position: relative;will-change: transform; overflow: auto;">
+                            <div style="width: 60px;height: 30px;margin: auto;margin-top: 15px;"><span style="color: deepskyblue">17:18</span></div>
+                            <div style="width: 100%;height: 314px;">
+                                <div id="chatcontext" style="height: 400px;">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="width: 100%;height: 28px">
+                                <span onclick="clickchatfile1()"><img src="/img/file.png" alt="" width="20px"></span>
+                                <input id="chatupfile" onchange="chatupfile1()" type="file" name="upfile" style="height: 40px;display: none">
+                            </div>
+                            <div id="contenttext" class="content" placeholder='请输入信息' contenteditable="true" style="width: 100%;border-bottom: 1px solid skyblue;height: 100px;display:inline-block;box-sizing: border-box; direction: ltr; position: relative;will-change: transform; overflow: auto;">
+
+                            </div>
+                            <div style="float: right;margin-right: 0px">
+                                <button onclick="send()" type="primary" plain>发送</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

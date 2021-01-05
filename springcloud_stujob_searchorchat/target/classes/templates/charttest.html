@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <!-- 引入 vue -->
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <!-- 引入 jquery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+     <script type="text/javascript">
+        var vm=new Vue({
+        el:"#main",
+        data:{
+            name:["中国","美国"],
+            type:["2","1"]
+        },
+        methods:{	//自定义方法
+            getBarChart:function(){
+                $.get("/searchorchat/charttest",{},function(data){
+                    //alert(JSON.stringify(data));
+                    var data=data;
+                    console.log(data);
+                    //alert(JSON.stringify(data));
+                    var len=data.length;
+                    //alert(len);
+                    //vm.name和vm.type数组清空,保证数据准确性
+                    vm.name=[];
+                    vm.type=[];
+                    for(var i=0;i<len;i++){	//for循环遍历出来
+                        //数据库的值分别赋给vm.name和vm.type数组
+                        vm.name.push(data[i].name);
+                        vm.type.push(data[i].age);
+
+                    }
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main'));
+                    // 指定图表的配置项和数据
+                    myChart.setOption({
+                        title: {
+                            text: '异步数据加载示例'
+                        },
+                        tooltip: {},
+                        legend: {
+                            data: ['销量']
+                        },
+                        xAxis: {
+                            data:vm.name
+                            //["中国","美国","日本","韩国","巴基斯坦"]
+                        },
+                        yAxis: {
+                        },
+                        series: [{
+                            name: '销量',
+                            type: 'bar',
+                            data:vm.type
+                            //["4","2","3","4","5"]
+                        }]
+                    });
+                })
+            },
+
+        },
+        mounted(){
+            this.getBarChart();
+            this.tiemr=setInterval(this.getBarChart,10000);
+        }
+
+    });
+</script>
+</body>
+</html>

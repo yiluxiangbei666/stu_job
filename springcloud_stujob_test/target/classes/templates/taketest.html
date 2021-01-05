@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考试</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 900px;
+            background: antiquewhite;
+        }
+        .content{
+            outline: none;
+        }
+        .content:empty:before{
+            content: attr(placeholder);
+            color: darkgrey;
+        }
+        /*焦点时内容为空*/
+        .content:focus:before{
+            content:none;
+        }
+    </style>
+    <script>
+        var ws;
+        $(function () {
+            if ("WebSocket" in window)
+            {
+                var sendUser = $("#loginphone").text();
+                // 打开一个 web socket
+                ws = new WebSocket("ws://localhost:8001/chatDemo/"+sendUser);
+                ws.onopen = function()
+                {
+                    console.log("连接服务器成功");
+                };
+                ws.onclose = function()
+                {
+                    console.log("连接被成功关闭");
+                };
+                window.onbeforeunload=function () {
+                    ws.close();
+                }
+                ws.onmessage = function (event)
+                {
+                    if(event.data.indexOf("count")>-1){
+
+                    }else {
+
+                    }
+                };
+            }
+            else
+            {
+                // 浏览器不支持 WebSocket
+                alert("您的浏览器不支持 WebSocket!");
+            }
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                url: "/test/getCurrentUser",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data != null) {
+                        var phone = data;
+                        $("#loginphone").text(data);
+                    }
+                }
+            });
+        })
+        function getsubjectList() {
+            $("#subjectList").empty();
+            var secretkey=$("#secretkey").val();
+            $("#username").prop('disabled', true);
+            $("#phone").prop('disabled',true);
+            $("#secretkey").prop('disabled',true);
+            console.log(secretkey);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {"secretkey":secretkey},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                url: "/test/getsubjectList",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    for(var i=0;i<data.length;i++){
+                        var subject="<div class=\"subject\" style=\"border: 1px solid skyblue;margin-top: 30px\">\n" +
+                            "            <div disabled=\"disabled\" name=\"subjectname\" class=\"content\" placeholder='请输入信息' contenteditable=\"true\" style=\"width: 100%;height: 100px;display:inline-block;box-sizing: border-box; direction: ltr; position: relative;will-change: transform; overflow: auto;\">"+data[i].subjectname+"\n" +
+                            "\n" +
+                            "            </div>\n" +
+                            "            <div>\n" +
+                            "                <span class=\"input-group-btn\" style=\"display: inline-block\">\n" +
+                            "                    <button class=\"btn btn-default\" type=\"button\">A:</button>\n" +
+                            "                </span>\n" +
+                            "                <input disabled value=\""+data[i].a+"\" name=\"A\" style=\"width: 95%;display: inline-block;float: right\" type=\"text\" class=\"form-control\">\n" +
+                            "            </div>\n" +
+                            "            <div>\n" +
+                            "                <span class=\"input-group-btn\" style=\"display: inline-block\">\n" +
+                            "                    <button class=\"btn btn-default\" type=\"button\">B:</button>\n" +
+                            "                </span>\n" +
+                            "                <input disabled value=\""+data[i].b+"\" name=\"B\" style=\"width: 95%;display: inline-block;float: right\" type=\"text\" class=\"form-control\">\n" +
+                            "            </div>\n" +
+                            "            <div>\n" +
+                            "                <span class=\"input-group-btn\" style=\"display: inline-block\">\n" +
+                            "                    <button class=\"btn btn-default\" type=\"button\">C:</button>\n" +
+                            "                </span>\n" +
+                            "                <input disabled value=\""+data[i].c+"\" name=\"C\" style=\"width: 95%;display: inline-block;float: right\" type=\"text\" class=\"form-control\">\n" +
+                            "            </div>\n" +
+                            "            <div>\n" +
+                            "                <span class=\"input-group-btn\" style=\"display: inline-block\">\n" +
+                            "                    <button class=\"btn btn-default\" type=\"button\">D:</button>\n" +
+                            "                </span>\n" +
+                            "                <input disabled value=\""+data[i].d+"\" name=\"D\" style=\"width: 95%;display: inline-block;float: right\" type=\"text\" class=\"form-control\">\n" +
+                            "            </div>\n" +
+                            "            <div>\n" +
+                            "                <input name=\"youranswer\" placeholder=\"输入您的答案\" style=\"width: 100%;display: inline-block\" type=\"text\" class=\"form-control\">\n" +
+                            "            </div>\n" +
+                            "        </div>";
+                        $("#subjectList").append(subject);
+                    }
+                    var submit="<button style=\"margin-left: 300px;margin-bottom: 100px\" onclick=\"submittest()\" class=\"btn btn-default\" type=\"button\">确定交卷</button>";
+                    $("#subjectList").append(submit);
+                    codeinterval();
+                }
+            });
+        }
+        var a = new Array();
+        function submittest() {
+            var subjectList=$("#subjectList").children();
+            var length=subjectList.length;
+            for(var i=0;i<length-1;i++){
+                a[i]=new Object();
+                var subjectname = subjectList.eq(i).children().eq(0).text();
+                var youranswer=subjectList.eq(i).children().eq(5).children().eq(0).val();
+                a[i].subjectname=subjectname;
+                a[i].youranswer=youranswer;
+            }
+            var username=$("#username").val();
+            var phone=$("#loginphone").text();
+            var secretkey=$("#secretkey").val();
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{"a":JSON.stringify(a),"username":username,"phone":phone,"secretkey":secretkey},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/test/submittest",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    if(data=="您已经参加了一次测试,不可重复做题"){
+                        $("body").empty();
+                        var result="答题错误："+data;
+                        var h1="<h1 style=\"margin-left: 600px\">"+result+"</h1>";
+                        $("body").append(h1);
+                    }
+                    else {
+                        var sendUser = $("#loginphone").text();
+                        var toUser=$("#secretkey").val().toString().split("@")[0];
+                        var message=sendUser+"已经完成"+secretkey+"的测试."+"成绩为:"+data;
+                        console.log(sendUser+" "+toUser);
+                        var jsonMsg = {"sendUser":sendUser,"toUser":toUser,"message":message}
+                        ws.send(JSON.stringify(jsonMsg));
+                        $("body").empty();
+                        var result="您的分数为:"+data;
+                        var h1="<h1 style=\"margin-left: 600px\">"+result+"</h1>";
+                        $("body").append(h1);
+                    }
+                }
+            });
+        }
+        var countdown=1800;
+        function codeinterval() {
+            var _generate_code = $("#time");
+            if (countdown == 0) {
+                submittest();
+                return false;
+            } else {
+                var hour;
+                var sec;
+                var minute;
+                sec=Number(countdown%60);
+                sec= sec.toFixed(0);
+                minute=Number(countdown/60%60);
+                minute=minute.toFixed(0);
+                hour=Number(countdown/60/60%60);
+                hour=hour.toFixed(0);
+                _generate_code.text(hour+":"+minute+":"+sec);
+                countdown--;
+            }
+            setTimeout(function() {
+                codeinterval();
+            },1000);
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/index">首页</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/homepage">职位</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user" id="loginphone">登录</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://localhost:8004/addtest">发布测评</a></li>
+                    <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                    <li><a href="/logout">退出</a></li>
+                </ul>
+            </li>
+            <li style="margin-right: 300px"><a href="http://localhost:8001/register"><span class="glyphicon glyphicon-log-in"></span>注册</a></li>
+        </ul>
+    </div>
+</nav>
+    <div style="width: 700px;background:white;height:170px;margin: auto;border-bottom: 1px solid black">
+        <div class="col-lg-6">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">参加者姓名</button>
+            </span>
+            <input id="username" type="text" class="form-control">
+        </div>
+        <div class="col-lg-6">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">参加者电话</button>
+            </span>
+            <input id="phone" type="text" class="form-control">
+        </div>
+        <div class="col-lg-6">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">考试密钥</button>
+            </span>
+            <input id="secretkey" type="text" class="form-control">
+        </div>
+        <div class="col-lg-6">
+            <br>
+            <br>
+            <span style="margin-top: 20px" class="input-group-btn">
+                <button onclick="getsubjectList()" class="btn btn-default" type="button">开始做题</button>
+            </span>
+        </div>
+    </div>
+    <div style="width: 700px;background: white;margin: auto">
+        <span style="margin-left:15px;color: red;font-size: 22px">倒计时:</span><span id="time" style="font-size: 22px"></span>
+    </div>
+    <div id="subjectList" style="width: 700px;background: white;margin: auto">
+    </div>
+</body>
+</html>

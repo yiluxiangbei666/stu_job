@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 900px;
+            background: antiquewhite;
+        }
+    </style>
+    <script>
+        $(function () {
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/getCurrentUser",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+                    console.log(data);
+                    if(data!=null){
+                        var phone=data;
+                        $("#loginphone").text(data);
+                        $.ajax({
+                            //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                            data:{phone:phone},//向后台controller发送的数据
+                            // dataType:"json", //json格式解析返回数据
+                            type:"get",
+                            async:false,
+                            url:"/user/getUserInfo",
+                            error:function (XMLHttpRequest, textStatus, errorThrown) {
+                                console.log(XMLHttpRequest.status); //状态码
+                                console.log(XMLHttpRequest.readyState); //状态
+                                console.log(textStatus); //错误信息
+                            },
+                            success:function (data) {
+                                console.log(data[0]);
+                                var user_name=$("input[name='user_name']").val(data[0].user_name);
+                                var password=$("input[name='password']").val(data[0].password);
+                                var sex=$("input[name='sex']").val(data[0].sex);
+                                var school=$("input[name='school']").val(data[0].school);
+                                var major=$("input[name='major']").val(data[0].major);
+                                var phone=$("input[name='phone']").val(data[0].phone);
+                                var resume_url=$("span[name='resume_url']").html(data[0].resume_url);
+                                console.log(data[1]);
+                                var user_advantage=$("textarea[name='user_advantage']").val(data[1].user_advantage);
+                                var user_project=$("textarea[name='user_project']").val(data[1].user_project);
+                                var user_atschool_experience=$("textarea[name='user_atschool_experience']").val(data[1].user_atschool_experience);
+                                document.getElementById('img').src="file/"+data[1].user_head_img;
+                                $("img[name='user_head_img']").src=data[1].user_head_img;
+                            }
+                        });
+                        $.ajax({
+                            //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                            data: {"phone":phone},//向后台controller发送的数据
+                            // dataType:"json", //json格式解析返回数据
+                            type: "get",
+                            async:false,
+                            url: "/user/getmysubmitrecord",
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                console.log(XMLHttpRequest.status); //状态码
+                                console.log(XMLHttpRequest.readyState); //状态
+                                console.log(textStatus); //错误信息
+                            },
+                            success: function (data) {
+                                if (data != null) {
+                                    $("#mysubmitrecordcount").text(data.length);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        });
+        function uploadfile() {
+            document.getElementById("upfile").click();
+        }
+        function showfilename() {
+            var file=document.getElementById("upfile").files[0];
+            var reader=new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload=function (e) {
+                var result = reader.result;
+                document.getElementById('img').src=result;
+            }
+            var phone=$("input[name='phone']").val();
+            var form = new FormData();
+            file=new File([file],phone+"head"+".jpg",{type:"image/jpeg"});
+            form.append("phone", phone);
+            form.append("file", file);
+            console.log(phone+" "+file);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:form,//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"post",
+                processData: false,
+                contentType: false,
+                url:"/user/updateUser_head_img",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+
+                }
+            });
+        }
+        function uploadresume() {
+            document.getElementById("resumefile").click();
+        }
+        function resumefile() {
+            let file=document.getElementById("resumefile").files[0];
+            $("#resumefilename>span").text(file.name);
+            var phone=$("input[name='phone']").val();
+            var form = new FormData();
+            file=new File([file],phone+"resume"+".pdf",{type:"image/jpeg"});
+            form.append("phone", phone);
+            form.append("file", file);
+            console.log(phone+" "+file);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:form,//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"post",
+                processData: false,
+                contentType: false,
+                url:"/user/update_resume_url",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+
+                }
+            });
+        }
+        function saveuserandmoreinfo() {
+            var user_name=$("input[name='user_name']").val();
+            var password=$("input[name='password']").val();
+            var sex=$("input[name='sex']").val();
+            var school=$("input[name='school']").val();
+            var major=$("input[name='major']").val();
+            var phone=$("input[name='phone']").val();
+
+            var user_advantage=$("textarea[name='user_advantage']").val();
+            var user_project=$("textarea[name='user_project']").val();
+            var user_atschool_experience=$("textarea[name='user_atschool_experience']").val();
+            console.log(user_name+" "+password+" "+sex+" "+school+" "+major+" "+phone+" "
+                +user_advantage+" "+user_project+" "+user_atschool_experience
+            )
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data:{user_name:user_name,password:password,sex:sex,school:school,major:major,
+                     phone:phone,user_advantage:user_advantage,user_project:user_project,user_atschool_experience:user_atschool_experience
+                     },//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type:"get",
+                url:"/user/saveuserandmoreinfo",
+                error:function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success:function (data) {
+
+                }
+            });
+        }
+        function showmysubmitrecord() {
+            window.location.href="/getmysubmitrecord";
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/index">首页</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/homepage">职位</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user" id="loginphone">登录</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://localhost:8004/addtest">发布测评</a></li>
+                    <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                    <li><a href="/logout">退出</a></li>
+                </ul>
+            </li>
+            <li style="margin-right: 300px"><a href="http://localhost:8001/register"><span class="glyphicon glyphicon-log-in"></span>注册</a></li>
+        </ul>
+    </div>
+</nav>
+    <div style="width: 1200px;height: 850px;background:white;margin: auto">
+        <div class="person_left" style="width: 800px;height:820px;margin-left: 20px;display: inline-block;">
+            <div>
+                <span style="font-size: 24px;margin-left:350px">编辑个人信息</span>
+                <div class="input-group input-group-lg" style="">
+                    <span class="input-group-addon">姓名</span>
+                    <input name="user_name" type="text" class="form-control" placeholder="姓名">
+                    <span class="input-group-addon">电话</span>
+                    <input disabled name="phone" type="text" class="form-control" placeholder="电话">
+                </div>
+                <div class="input-group input-group-lg" style="">
+                    <span class="input-group-addon">密码</span>
+                    <input name="password" type="text" class="form-control" placeholder="密码">
+                    <span class="input-group-addon">性别</span>
+                    <input name="sex" type="text" class="form-control" placeholder="性别">
+                </div>
+                <div class="input-group input-group-lg" style="">
+                    <span class="input-group-addon">学校</span>
+                    <input name="school" type="text" class="form-control" placeholder="学校">
+                    <span class="input-group-addon">专业</span>
+                    <input name="major" type="text" class="form-control" placeholder="专业">
+                </div>
+            </div>
+            <div style="margin-top: 20px">
+                <span style="font-size: 24px;margin-left:350px">个人优势</span>
+                <textarea name="user_advantage" style="font-size:24px;width: 100%;height: 100px">
+                </textarea>
+            </div>
+            <div style="margin-top: 20px">
+                <span style="font-size: 24px;margin-left:350px">项目经历</span>
+                <textarea name="user_project" style="font-size:24px;width: 100%;height: 100px">
+                </textarea>
+            </div>
+            <div style="margin-top: 20px">
+                <span style="font-size: 24px;margin-left:350px">教育经历</span>
+                <div class="input-group input-group-lg" style="">
+                    <span class="input-group-addon">学校名称</span>
+                    <input name="school" type="text" class="form-control" placeholder="学校名称">
+                    <span class="input-group-addon">专业</span>
+                    <input name="major" type="text" class="form-control" placeholder="专业">
+                </div>
+                <span style="margin-left: 15px">在校经历</span><br>
+                <textarea name="user_atschool_experience" style="font-size:24px;width: 100%;height: 100px">
+                </textarea>
+            </div>
+            <button onclick="saveuserandmoreinfo()" type="button" class="btn btn-default btn-lg btn-block">保存</button>
+        </div>
+        <div class="person_right" style="width: 350px;height: 850px;display: inline-block;float: left;background: skyblue">
+            <div style="width: 80%;margin: auto;margin-top: 40px">
+                <span style="font-size: 24px">附件管理</span>
+                <input onchange="showfilename()" accept=".jpg,.png" style="display: none" id="upfile" type="file"  />
+                <div><img name="user_head_img" id="img" src="" width="280px" height="200" style="border-radius: 50%"></div>
+                <button type="button" onclick="uploadfile()" class="btn btn-default btn-lg btn-block">上传照片</button>
+                <input onchange="resumefile()" accept=".pdf" style="display: none" id="resumefile" type="file"  />
+                <div id="resumefilename"><span name="resume_url" style="font-size: 21px;margin-left: 30px"></span></div>
+                <button type="button" onclick="uploadresume()" class="btn btn-default btn-lg btn-block">上传简历</button>
+                <span style="margin-left: 10px">10</span><span id="mysubmitrecordcount" style="margin-left: 70px">10</span><span style="margin-left: 60px">0</span><span style="margin-left: 70px">10</span><br>
+                <span style="cursor: pointer">沟通过</span><span onclick="showmysubmitrecord()" style="margin-left: 40px;cursor: pointer">已投递</span><span style="margin-left: 40px;cursor: pointer">面试</span><span style="margin-left: 40px;cursor: pointer">感兴趣</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

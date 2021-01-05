@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好友</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.8/vue.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        *{
+            padding:0 0;
+            margin:0 0;
+        }
+        li:hover{
+            cursor: pointer;
+        }
+        .header{
+            width:100%;
+            background-color:#fff;
+            position:fixed;
+            -webkit-box-shadow: 2px 2px 10px rgb(220,220,220);
+        }
+        .main{
+            width:100%;
+            height: 920px;
+            background-color:#F2F4F8;
+        }
+        .message-container-title>span:hover{
+            cursor: pointer;
+        }
+        .message-container>div>div:hover{
+            cursor: pointer;
+            background: gainsboro;
+        }
+        .content{
+            outline: none;
+        }
+        .content:empty:before{
+            content: attr(placeholder);
+            color: darkgrey;
+        }
+        /*焦点时内容为空*/
+        .content:focus:before{
+            content:none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <el-header>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/index">首页</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/homepage">职位</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-default">提交</button>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user" id="loginphone">登录</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://localhost:8004/addtest">发布测评</a></li>
+                                <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                                <li><a href="/logout">退出</a></li>
+                            </ul>
+                        </li>
+                        <li style="margin-right: 300px"><a href="http://localhost:8001/register"><span class="glyphicon glyphicon-log-in"></span>注册</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </el-header>
+        <el-container>
+            <el-main class="main">
+                <div class="mian-pagecontent" style="background:white;width: 1000px;height: 600px;margin:auto;margin-top:90px">
+                    <div class="message-container" style="float:left;margin-left:15px;display:inline-block;box-sizing: border-box; direction: ltr;height: 600px; position: relative; width: 330px; will-change: transform; overflow: auto;">
+                        <div class="message-container-title" style="margin-top:20px;width: 100%;height: 45px">
+                            <span id="allmessage" @click="allmessage">全部</span>&nbsp;<span>|</span>&nbsp;
+                            <span id="waitread" @click="waitread" style="color: gray">未读</span>
+                            <span id="friends" @click="swichtofriendslist($event)" style="margin-left:120px;vertical-align: middle"><img src="/img/联系人.png" alt="" width="25px"></span>&nbsp;
+                            <span id="searchfriendsorcontent" @click="swichtosearch($event)" style="vertical-align: middle"><img src="/img/搜索.png" alt="" width="25px"></span>
+                        </div>
+                        <hr>
+                        <div id="mychatList">
+                        </div>
+                    </div>
+                    <div class="dialogue-container" style="border: 1px solid #ededeb; float: left;display: inline-block;margin-left: 8px; width: 645px;height: 600px;background: white">
+                        <div style="width: 100%;height: 54px;margin-top: 10px;border-bottom: 1px solid skyblue">
+                            <span id="chatname">李玉涛</span>&nbsp;&nbsp;&nbsp;
+                            <span id="chatmajor" style="margin-left:-10px;vertical-align: bottom;font-size: 12px;width: 300px;white-space:nowrap; word-break:keep-all; display: inline-block;overflow:hidden;  text-overflow:ellipsis;">广州市优普科技有限公司·java工程师</span>
+                        </div>
+                        <div style="width: 100%;height: 350px;border-bottom: 1px solid skyblue;display:inline-block;box-sizing: border-box; direction: ltr; position: relative;will-change: transform; overflow: auto;">
+                                <div style="width: 60px;height: 30px;margin: auto;margin-top: 15px;"><span style="color: deepskyblue">17:18</span></div>
+                                <div style="width: 100%;height: 314px;">
+                                    <div id="chatcontext" style="height: 400px;">
+
+                                    </div>
+                                </div>
+                        </div>
+                        <div>
+                            <div style="width: 100%;height: 28px">
+                                <span @click="clickchatfile1()"><img src="/img/file.png" alt="" width="20px"></span>
+                                <input id="chatupfile" @change="chatupfile1()" type="file" name="upfile" style="height: 40px;display: none">
+                            </div>
+                            <div id="sendmessage" class="content" placeholder='请输入信息' contenteditable="true" style="width: 100%;height: 100px;display:inline-block;box-sizing: border-box; direction: ltr; position: relative;will-change: transform; overflow: auto;">
+
+                            </div>
+                            <div style="float: right;margin-right: 0px"><el-button @click="sendchat()" type="primary" plain>发送</el-button></div>
+                        </div>
+                    </div>
+                </div>
+            </el-main>
+        </el-container>
+    </div>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            searchinput: '',
+            sendUser:'',
+            toUser:'',
+        },
+        created(){
+
+        },
+        mounted:function(){
+            this.searchmychatList();
+            window.showchatcontent=this.showchatcontent;
+        },
+        methods:{
+              async searchmychatList() {
+                  await axios.get('/searchorchat/getCurrentUser', {}).then(function (response) {
+                      $("#loginphone").text(response.data);
+                  }).catch(function (error) {
+                      console.log(error)
+                  });
+                  var sendUser = $("#loginphone").text();
+                  var result = await axios.get('/searchorchat/getcartList?sendUser=' + sendUser);
+                  for(var i=0;i<result.data.length;i++){
+                      var user = await axios.get('/searchorchat/getUserByPhone?phone=' + result.data[i]);
+                      var mychat = "<div onclick=\"showchatcontent(this)\"  style=\"width:100%;height: 74px\" @mousemove=\"showmore($event)\"  @mouseout=\"showtime($event)\"><span style=\'display: none\'>"+user.data.phone+"</span>\n" +
+                          "                                <div style=\"float: left;height:70px;display: inline-block\">\n" +
+                          "                                    <img src=\"/img/edit_person.png\" alt=\"\" width=\"50px\" style=\"margin-top: 10px;border-radius: 50%\">\n" +
+                          "                                </div>\n" +
+                          "                                <div style=\"float: left;width: 250px;margin-top: 5px;height:60px;\">\n" +
+                          "                                    <div>\n" +
+                          "                                        <span>"+user.data.user_name+"</span>\n" +
+                          "                                        &nbsp;\n" +
+                          "                                        <span style=\"margin-left:-10px;vertical-align: bottom;font-size: 12px;width: 100px;white-space:nowrap; word-break:keep-all; display: inline-block;overflow:hidden;  text-overflow:ellipsis;\">\n" +
+                          "                                            "+user.data.major+"\n" +
+                          "                                        </span>\n" +
+                          "                                        <span style=\"float:right;display: none\">...</span>\n" +
+                          "                                        <span style=\"float:right;margin-top:5px;font-size: 12px\">10/09</span>\n" +
+                          "                                        <span style=\"margin-top:5px;color: #999eaa;font-size: 14px;width: 230px;white-space:nowrap; word-break:keep-all; display: inline-block;overflow:hidden;  text-overflow:ellipsis;\">"+user.data.school+"</span>\n" +
+                          "                                    </div>\n" +
+                          "                                </div>\n" +
+                          "                            </div>";
+                      $("#mychatList").append(mychat);
+                  }
+              },
+            sendchat(){
+                var message=$("#sendmessage").html();
+                var sendUser=this.sendUser;
+                var toUser=this.toUser;
+                $("#sendmessage").empty();
+                var jsonMsg = {"sendUser":sendUser,"toUser":toUser,"message":message}
+                ws.send(JSON.stringify(jsonMsg));
+                var message="<div class=\"youronemessage\" style=\"width: 70%;margin-top: 15px;float: right\">\n" +
+                    "                                        <img src=\"/img/好友详情.png\" alt=\"\" width=\"20px\" style=\"float: right;\">\n" +
+                    "                                        <span style=\"float:right;margin-right: 20px;width: 70%;height: 80px;word-break:normal; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;\">"+message+"</span>\n" +
+                    "                                    </div>";
+                $("#chatcontext").append(message);
+                $("#sendmessage").empty();
+            },
+            showchatcontent(v){
+                $("#chatcontext").empty();
+                var chatname=$(v).children().eq(2).children().eq(0).children().eq(0).text();
+                var chatmajor=$(v).children().eq(2).children().eq(0).children().eq(1).text();
+                $("#chatname").text(chatname);
+                $("#chatmajor").text(chatmajor);
+                this.toUser= $(v).children().eq(0).text();
+                this.sendUser=$("#loginphone").text();
+                var toUser=this.toUser;
+                var sendUser=this.sendUser;
+                console.log(this.toUser+" "+this.sendUser);
+                if ("WebSocket" in window)
+                {
+                    var sendUser = $("#loginphone").text();
+                    // 打开一个 web socket
+                    ws = new WebSocket("ws://localhost:8001/chatDemo/"+sendUser);
+                    ws.onopen = function()
+                    {
+                        console.log("连接服务器成功");
+                    };
+                    ws.onmessage = function (event)
+                    {
+                        if(event.data.indexOf("count")>-1){
+
+                        }else {
+                            var message="<div class=\"myonemessage\" style=\"width: 70%;margin-top: 15px;float: left\">\n" +
+                                "                                        <img src=\"/img/好友详情.png\" alt=\"\" width=\"20px\">&nbsp;&nbsp;\n" +
+                                "                                        <span style=\"width: 70%;margin-left:20px;height: 80px;word-break:normal; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;\">"+event.data+"</span>\n" +
+                                "                                    </div>";
+                            $("#chatcontext").append(message);
+                        }
+                    };
+
+                    ws.onclose = function()
+                    {
+                        console.log("连接被成功关闭");
+                    };
+                    window.onbeforeunload=function () {
+                        ws.close();
+                    }
+                }
+                else
+                {
+                    // 浏览器不支持 WebSocket
+                    alert("您的浏览器不支持 WebSocket!");
+                }
+                var a = new Array();
+                var index=0;
+                $.ajax({
+                    //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                    data:{chat_user_id:sendUser,chat_usered_id:toUser},//向后台controller发送的数据
+                    // dataType:"json", //json格式解析返回数据
+                    type:"get",
+                    async:false,
+                    url:"/searchorchat/getchatList",
+                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest.status); //状态码
+                        console.log(XMLHttpRequest.readyState); //状态
+                        console.log(textStatus); //错误信息
+                    },
+                    success:function (data) {
+                        for(var i=0;i<data.length;i++){
+                            a[index]=data[i];
+                            index++;
+                        }
+                    }
+                });
+                $.ajax({
+                    //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                    data:{chat_user_id:toUser,chat_usered_id:sendUser},//向后台controller发送的数据
+                    // dataType:"json", //json格式解析返回数据
+                    type:"get",
+                    async:false,
+                    url:"/searchorchat/getchatList",
+                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest.status); //状态码
+                        console.log(XMLHttpRequest.readyState); //状态
+                        console.log(textStatus); //错误信息
+                    },
+                    success:function (data) {
+                        for(var i=0;i<data.length;i++){
+                            a[index]=data[i];
+                            index++;
+                        }
+                    }
+                });
+                a.sort(function(b,c){
+                    if(b.chat_send_time>c.chat_send_time) return 1 ;
+                    if(b.chat_send_time<c.chat_send_time) return -1 ;
+                    return 0 ;
+                });
+                console.log(a);
+                for(var i=0;i<a.length;i++){
+                    if(a[i].chat_user_id==sendUser){
+                        var message="<div class=\"youronemessage\" style=\"width: 70%;margin-top: 15px;float: right\">\n" +
+                            "                                        <img src=\"/img/好友详情.png\" alt=\"\" width=\"20px\" style=\"float: right;\">\n" +
+                            "                                        <span style=\"float:right;margin-right: 20px;width: 60%;height: 80px;word-break:normal; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;\">"+a[i].chat_send_content+"</span>\n" +
+                            "                                    </div>";
+                        $("#chatcontext").append(message);
+                    }
+                    if(a[i].chat_user_id==toUser){
+                        var message="<div class=\"myonemessage\" style=\"width: 70%;margin-top: 15px;float: left\">\n" +
+                            "                                        <img src=\"/img/好友详情.png\" alt=\"\" width=\"20px\">&nbsp;&nbsp;\n" +
+                            "                                        <span style=\"width: 70%;margin-left:20px;height: 80px;word-break:normal; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;\">"+a[i].chat_send_content+"</span>\n" +
+                            "                                    </div>";
+                        $("#chatcontext").append(message);
+                    }
+                }
+            },
+            searchChange(v){
+                alert("发生改变"+v);
+            },
+            searchfriendsChange(v){
+               if(v==""){
+                   var span=document.createElement("span");
+                   span.style.color="#B1B6C1";
+                   span.style.marginLeft="50px";
+                   span.style.marginTop="150px";
+                   span.innerHTML="搜索联系人、群聊、聊天记录";
+                   document.getElementById("SearchFriendsOrOtherList").appendChild(span);
+               }
+               else {
+                   document.getElementById("SearchFriendsOrOtherList").innerHTML="";
+               }
+            },
+            allmessage(){
+                document.getElementById("waitread").style.color="gray";
+                document.getElementById("allmessage").style.color="black";
+            },
+            waitread(){
+                document.getElementById("waitread").style.color="black";
+                document.getElementById("allmessage").style.color="gray";
+            },
+            showmore(e){
+                var parent= e.currentTarget;
+                parent.children[1].children[0].children[2].style.display="block";
+                parent.children[1].children[0].children[3].style.display="none";
+            },
+            showtime(e){
+                var parent= e.currentTarget;
+                parent.children[1].children[0].children[2].style.display="none";
+                parent.children[1].children[0].children[3].style.display="block";
+            },
+            swichtoallmessage(e){
+                e.currentTarget.parentElement.parentElement.style.display="none";
+                e.currentTarget.parentElement.parentElement.parentElement.children[0].style.display="inline-block";
+            },
+            swichtofriendslist(e){
+                e.currentTarget.parentElement.parentElement.style.display="none";
+                e.currentTarget.parentElement.parentElement.parentElement.children[1].style.display="inline-block";
+            },
+            swichtosearch(e){
+                e.currentTarget.parentElement.parentElement.style.display="none";
+                e.currentTarget.parentElement.parentElement.parentElement.children[2].style.display="inline-block";
+            },
+            clickfile(){
+                document.getElementById("upfile").click();
+            },
+            GotoFriendInfomation(){
+                alert("跳转到好友信息界面");
+            },
+            clickchatfile1(){
+                $("#chatupfile").click();
+            },
+            chatupfile1(){
+                var filename=$("#chatupfile").val().toString()+"";
+                var str="\\";
+                var index=filename.lastIndexOf(str);
+                console.log(index);
+                filename="file\\"+filename.substring(index+1);
+                var a="<a download=\""+filename+"\" href=\""+filename+"\">"+filename+"</a>";
+                $("#sendmessage").append(a);
+                var file=document.getElementById("chatupfile").files[0];
+                var form = new FormData();
+                form.append("file", file);
+                console.log(file);
+                $.ajax({
+                    contentType:"multipart/form-data",//发送数据以key=value的形式传递
+                    data:form,//向后台controller发送的数据
+                    // dataType:"json", //json格式解析返回数据
+                    type:"post",
+                    processData: false,
+                    contentType: false,
+                    url:"/searchorchat/upfile",
+                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest.status); //状态码
+                        console.log(XMLHttpRequest.readyState); //状态
+                        console.log(textStatus); //错误信息
+                    },
+                    success:function (data) {
+                        alert("发送成功");
+                    }
+                });
+                this.sendchat();
+            }
+        }
+    })
+</script>
+</html>

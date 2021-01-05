@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.dao.apply_recorddao">
+    <insert id="insertapply_record" parameterType="test.bean.apply_record">
+        insert into apply_record(apply_record_id,apply_record_username,apply_record_company,apply_record_position,apply_record_time,apply_record_phone,apply_record_score)
+        values(#{apply_record_id},#{apply_record_username},#{apply_record_company},#{apply_record_position},#{apply_record_time},#{apply_record_phone},#{apply_record_score})
+    </insert>
+    <select id="selectapply_record" parameterType="test.bean.apply_record" resultType="test.bean.apply_record">
+        select * from apply_record where apply_record_phone=#{apply_record_phone} and apply_record_company=#{apply_record_company}
+        and apply_record_position=#{apply_record_position}
+    </select>
+</mapper>

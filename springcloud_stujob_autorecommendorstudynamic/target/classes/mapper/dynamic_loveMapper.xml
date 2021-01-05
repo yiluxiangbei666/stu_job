@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="autorecommendorstudynamic.dao.dynamic_lovedao">
+    <insert id="dianzhan" parameterType="autorecommendorstudynamic.bean.dynamic_love">
+        insert into dynamic_love(dynamic_love_id,dynamic_id,dynamic_love_user_id,dynamic_love_if)
+        values (#{dynamic_love_id},#{dynamic_id},#{dynamic_love_user_id},#{dynamic_love_if})
+    </insert>
+    <delete id="conceldianzhan" parameterType="autorecommendorstudynamic.bean.dynamic_love">
+        delete from dynamic_love where dynamic_id=#{dynamic_id} and dynamic_love_user_id=#{dynamic_love_user_id}
+    </delete>
+    <select id="getDynamic_loveList" parameterType="java.lang.String" resultType="java.lang.String">
+        select dynamic_id from dynamic_love
+        where dynamic_love_user_id=#{dynamic_love_user_id}
+    </select>
+</mapper>

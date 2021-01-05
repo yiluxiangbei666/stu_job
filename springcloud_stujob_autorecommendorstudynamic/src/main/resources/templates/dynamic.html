@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>校园动态</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 900px;
+            background: antiquewhite;
+        }
+    </style>
+    <script>
+        $(function () {
+            var phone;
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                async:false,
+                url: "/recommend/getCurrentUser",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data != null) {
+                        phone = data;
+                        $("#loginphone").text(data);
+                    }
+                }
+            });
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                async:false,
+                url: "/recommend/getAllDynamic",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    for(var i=0;i<data.length;i++){
+                        var dynamic="<div style=\"width: 100%\" id=\""+data[i].dynamic_id+"\">\n" +
+                            "                <div class=\"head\" style=\"margin-left: 10px\">\n" +
+                            "                    <div style=\"float: left;display: inline-block\"><img src=\"/file/人.png\" style=\"width: 60px;height: 60px\"></div>\n" +
+                            "                    <div style=\"height: 60px;display: inline-block\">\n" +
+                            "                        <span>"+data[i].dynamic_user_id+"</span><br>\n" +
+                            "                        <span>"+data[i].dynamic_send_time+"</span>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "                <div class=\"dynamic_content\" style=\"margin-left: 70px\"><span style=\"font-size: 24px\">"+data[i].dynamic_content+"</span></div>\n" +
+                            "                <div>\n" +
+                            "                    <span onclick=\'dianzhan(this)\' style=\"margin-left: 30px\"><img src=\"/file/dianzan.png\" width=\"40px\"></span><span onclick=\'conceldianzhan(this)\' style=\"margin-left: 30px;display: none\"><img src=\"/file/已点赞.png\"  width=\"32px\"></span>\n" +
+                            "                    <span onclick=\"showorhidepinluntext(this)\" style=\"margin-left: 250px\"><img src=\"/file/pinglun.png\" width=\"38px\"></span>\n" +
+                            "                    <span style=\"margin-left: 250px\"><img src=\"/file/fenxiang.png\" width=\"36px\"></span>\n" +
+                            "                </div>\n" +
+                            "                <div class=\"pingluntext\" style=\"display: none\">\n" +
+                            "                    <input style=\"width: 84%;display: inline-block;margin-left:30px\" type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"请输入名称\">\n" +
+                            "                    <input onclick=\"addpinglun(this)\" style=\"width: 40px\" type=\"button\" value=\"评论\">\n" +
+                            "                </div>\n" +
+                            "                <div class=\"otherpeople\">\n" +
+                            "                    \n" +
+                            "                </div>\n" +
+                            "            </div>";
+                        $(".school_dynamic").prepend(dynamic);
+                        $(".school_dynamic").prepend("<hr>");
+                        var dynamicid=data[i].dynamic_id;
+                        console.log(dynamicid);
+                        var otherpeople= $("#"+dynamicid+"").children().eq(4);
+                        $.ajax({
+                            //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                            data: {comment_usered_id:dynamicid},//向后台controller发送的数据
+                            // dataType:"json", //json格式解析返回数据
+                            type: "get",
+                            async:false,
+                            url: "/recommend/getDynamicComment",
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                console.log(XMLHttpRequest.status); //状态码
+                                console.log(XMLHttpRequest.readyState); //状态
+                                console.log(textStatus); //错误信息
+                            },
+                            success: function (data1) {
+                                for (var i=0;i<data1.length;i++){
+                                    var comment="<div style=\"margin-left: 30px\">\n" +
+                                        "    <span style=\'color: orangered\'>"+data1[i].comment_user_id+"说:"+"</span>&nbsp;&nbsp;<span>"+data1[i].comment_content+"</span>\n" +
+                                        "</div>\n" +
+                                        "<hr>";
+                                    otherpeople.prepend(comment);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+            var dynamic_love_user_id =phone;
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {dynamic_love_user_id:dynamic_love_user_id},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                async:false,
+                url: "/recommend/getDynamic_loveList",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    for (var i=0;i<data.length;i++){
+                        var div = $("#"+data[i]+"");
+                        div.children().eq(2).children().eq(0).hide();
+                        div.children().eq(2).children().eq(1).show();
+                    }
+                }
+            });
+        })
+        function clickFile() {
+            $("#upfile").click();
+        }
+        function showimg() {
+            let file=document.getElementById("upfile").files[0];
+            var reader=new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload=function (e) {
+                var result = reader.result;
+                var img="<img src=\""+result+"\" alt=\"\" width=\"70px\" height=\'80px\'>";
+                $(".content").append(img);
+            }
+        }
+        function sendtoschooldynamic() {
+            var dynamic_user_id =$("#loginphone").text();
+            var dynamic_content = $(".content").html();
+            var dynamic_send_time=new Date();
+            dynamic_send_time=dynamic_send_time.getMonth()+1+"月"+dynamic_send_time.getDate()+"日"+dynamic_send_time.getHours()+"点"+dynamic_send_time.getMinutes()+"分";
+            console.log(dynamic_send_time+" "+dynamic_content+" "+dynamic_user_id);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {"dynamic_user_id":dynamic_user_id,"dynamic_content":dynamic_content,"dynamic_send_time":dynamic_send_time},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "post",
+                url: "/recommend/addDynamic",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    if(data=="success"){
+                        alert("成功发送动态");
+                    }
+                    else {
+                        alert("发送失败");
+                    }
+                }
+            });
+            window.location.href="/dynamicpage";
+        }
+        function showorhidepinluntext(val) {
+            var child = $(val).parent().parent().children(".pingluntext").eq(0);
+            if(child.is(':hidden')){
+                child.show();
+            }
+            else{
+                child.hide();
+            }
+        }
+        function addpinglun(val) {
+            var comment_content= $(val).parent().children().eq(0).val();
+            var phone=$("#loginphone").text();
+            var dynamic_id=$(val).parent().parent().attr('id');
+            var comment_time=new Date();
+            comment_time=comment_time.getMonth()+1+"月"+comment_time.getDate()+"日"+comment_time.getHours()+"点"+comment_time.getMinutes()+"分";
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {comment_content:comment_content,comment_user_id:phone,
+                       comment_usered_id:dynamic_id,comment_time:comment_time
+                },//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                url: "/recommend/addComment",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    if(data=="success"){
+                        alert("评论成功");
+                    }
+                    else {
+                        alert("评论失败");
+                    }
+                }
+            });
+            window.location.href="/dynamicpage";
+        }
+        function dianzhan(val) {
+            var child=$(val).next();
+            if(child.is(':hidden')){
+                child.show();
+            }
+            $(val).hide();
+            var dynamic_id=$(val).parent().parent().attr("id");
+            var dynamic_love_user_id =$("#loginphone").text();
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {dynamic_id:dynamic_id,dynamic_love_user_id:dynamic_love_user_id},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                url: "/recommend/dianzhan",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+
+                }
+            });
+        }
+        function conceldianzhan(val) {
+            var child=$(val).prev();
+            if(child.is(':hidden')){
+                child.show();
+            }
+            $(val).hide();
+            var dynamic_id=$(val).parent().parent().attr("id");
+            var dynamic_love_user_id =$("#loginphone").text();
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {dynamic_id:dynamic_id,dynamic_love_user_id:dynamic_love_user_id},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                url: "/recommend/conceldianzhan",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/index">首页</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/homepage">职位</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user" id="loginphone">登录</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://localhost:8004/addtest">发布测评</a></li>
+                    <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                    <li><a href="/logout">退出</a></li>
+                </ul>
+            </li>
+            <li style="margin-right: 300px"><a href="http://localhost:8001/register"><span class="glyphicon glyphicon-log-in"></span>注册</a></li>
+        </ul>
+    </div>
+</nav>
+    <div style="width: 700px;background: white;margin: auto">
+        <div>
+            <div class="content" placeholder='请输入信息' contenteditable="true" style="border: 1px solid skyblue; width: 100%;height: 100px;display:inline-block;box-sizing: border-box; direction: ltr; position: relative;will-change: transform; overflow: auto;">
+
+            </div>
+            <div style="width: 100%;height: 28px">
+                <span onclick="clickFile()"><img src="/file/file.png" alt="" width="20px"></span>
+                <input id="upfile" onchange="showimg()" type="file" name="upfile" style="height: 40px;display: none">
+                <div style="float: right;margin-right: 0px"><button onclick="sendtoschooldynamic()" type="primary" plain>发送动态</button></div>
+            </div>
+        </div><hr>
+        <div class="school_dynamic">
+
+        </div>
+    </div>
+</body>
+</html>
