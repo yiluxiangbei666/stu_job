@@ -7,4 +7,5 @@ import java.util.List;
 public interface dynamicservice {
     public void adddynamic(dynamic d);
     public List<dynamic> getAllDynamic();
+    public List<dynamic> getDynamicByContent(String content);
 }

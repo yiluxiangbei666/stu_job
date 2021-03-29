@@ -182,6 +182,10 @@
         function showmysubmitrecord() {
             window.location.href="/getmysubmitrecord";
         }
+        function searchAllInfo() {
+            var alltip = $("#searchallinfo").val();
+            window.location.href="/searchAllInfo?keytip="+alltip;
+        }
     </script>
 </head>
 <body>
@@ -194,12 +198,13 @@
             <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
             <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
             <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
-            <form class="navbar-form navbar-left" role="search">
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8004/jobstrategy">求职攻略</a>
+            <form class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input  id="searchallinfo" type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">提交</button>
             </form>
+            <button style="margin-top: 8px" class="btn btn-default" onclick="searchAllInfo()">提交</button>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li>
@@ -208,8 +213,13 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><a href="/myaddjoblist">我的招聘信息</a></li>
                     <li><a href="http://localhost:8004/addtest">发布测评</a></li>
                     <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                    <li><a href="http://localhost:8001/getmysubmitrecord">个人申请记录</a></li>
+                    <li><a href="http://localhost:8004/mybookloverecord">我的收藏</a></li>
+                    <li><a href="http://localhost:8004/mybuybookrecord">我购买的攻略书籍</a></li>
+                    <li><a href="http://localhost:8004/mysalebookrecord">我卖的攻略书籍</a></li>
                     <li><a href="/logout">退出</a></li>
                 </ul>
             </li>

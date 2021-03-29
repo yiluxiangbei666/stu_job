@@ -21,4 +21,9 @@ public class Chatserviceimpl implements chatservice {
     public HashSet<String> getchatListbysendedUser(String sendedUser) {
         return cdao.getchatListbysendedUser(sendedUser);
     }
+
+    @Override
+    public List<chat> getChatListByUserAndContent(String phone, String content) {
+        return cdao.getChatListByUserAndContent(phone,content);
+    }
 }

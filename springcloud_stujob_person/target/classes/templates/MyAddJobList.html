@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            width: 100%;
+            height: 900px;
+            background: antiquewhite;
+        }
+        td:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+            background: cyan;
+        }
+    </style>
+    <script>
+        $(function () {
+            var key;
+            var phone;
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                url: "/user/getCurrentUser",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data != null) {
+                        phone = data;
+                        $("#loginphone").text(data);
+                    }
+                    $.ajax({
+                        //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                        data: {phone:phone},//向后台controller发送的数据
+                        // dataType:"json", //json格式解析返回数据
+                        type: "get",
+                        url: "/user/getPositionByPhone",
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            console.log(XMLHttpRequest.status); //状态码
+                            console.log(XMLHttpRequest.readyState); //状态
+                            console.log(textStatus); //错误信息
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            if (data.length>0) {
+                                for(var i=0;i<data.length;i++){
+                                    var body= $("#MyAddJobResult_id");
+                                    var tr= $("<tr></tr>");
+                                    var td1= $("<td></td>");
+                                    var td2= $("<td></td>");
+                                    var td3= $("<td></td>");
+                                    var td4= $("<td></td>");
+                                    var td5= $("<td></td>");
+                                    var td6= $("<td onclick=\"deletethisPosition(this)\"></td>");
+                                    td1.text(data[i].company_name);
+                                    td2.text(data[i].position_name);
+                                    td3.text(data[i].position_demand);
+                                    td4.text(data[i].position_money);
+                                    td5.text(data[i].position_send_time);
+                                    td6.text("是");
+                                    tr.append(td1);
+                                    tr.append(td2);
+                                    tr.append(td3);
+                                    tr.append(td4);
+                                    tr.append(td5);
+                                    tr.append(td6);
+                                    body.append(tr);
+                                }
+                            }
+                            else {
+                                $("#MyAddJobResult_id").html("您站务职位发布信息!");
+                            }
+                        }
+                    });
+                }
+            });
+        })
+        function searchAllInfo() {
+            var alltip = $("#searchallinfo").val();
+            window.location.href="/searchAllInfo?keytip="+alltip;
+        }
+        function deletethisPosition(val) {
+            var parent=$(val).parent();
+            var company_name=parent.children().eq(0).html();
+            var position_name=parent.children().eq(1).html();
+            var position_send_time=parent.children().eq(4).html();
+            console.log(company_name+" "+position_name+" "+position_send_time);
+            $.ajax({
+                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                data: {position_name:position_name,company_name:company_name,position_send_time:position_send_time},//向后台controller发送的数据
+                // dataType:"json", //json格式解析返回数据
+                type: "get",
+                url: "/user/getpositionId",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status); //状态码
+                    console.log(XMLHttpRequest.readyState); //状态
+                    console.log(textStatus); //错误信息
+                },
+                success: function (data) {
+                    if(data!=null){
+                        console.log(data);
+                    }
+                    $.ajax({
+                        //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                        data: {Id:data},//向后台controller发送的数据
+                        // dataType:"json", //json格式解析返回数据
+                        type: "get",
+                        url: "/user/deletePositionById",
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            console.log(XMLHttpRequest.status); //状态码
+                            console.log(XMLHttpRequest.readyState); //状态
+                            console.log(textStatus); //错误信息
+                        },
+                        success: function (data) {
+                            if(data!=null){
+                                alert(data);
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/index">首页</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/homepage">职位</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8004/jobstrategy">求职攻略</a>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input  id="searchallinfo" type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <button style="margin-top: 8px" class="btn btn-default" onclick="searchAllInfo()">提交</button>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user" id="loginphone">登录</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/myaddjoblist">我的招聘信息</a></li>
+                    <li><a href="http://localhost:8004/addtest">发布测评</a></li>
+                    <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                    <li><a href="http://localhost:8001/getmysubmitrecord">个人申请记录</a></li>
+                    <li><a href="http://localhost:8004/mybookloverecord">我的收藏</a></li>
+                    <li><a href="http://localhost:8004/mybuybookrecord">我购买的攻略书籍</a></li>
+                    <li><a href="http://localhost:8004/mysalebookrecord">我卖的攻略书籍</a></li>
+                    <li><a href="/logout">退出</a></li>
+                </ul>
+            </li>
+            <li style="margin-right: 300px"><a href="http://localhost:8001/register"><span class="glyphicon glyphicon-log-in"></span>注册</a></li>
+        </ul>
+    </div>
+</nav>
+    <div style="width: 700px;background: white;margin: auto">
+        <div id="MyAddJobResult">
+            <span style="font-size: 24px;color: orangered">发布职位搜索结果</span>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>公司名</th>
+                    <th>职位</th>
+                    <th>要求</th>
+                    <th>薪资</th>
+                    <th>发布时间</th>
+                    <th>删除</th>
+                </tr>
+                </thead>
+                <tbody id="MyAddJobResult_id">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -64,14 +64,4 @@ public class SmsUtils {
     public  int setNewcode(){
         return newcode = (int)(Math.random()*9999)+100;  //每次调用生成一次四位数的随机数
     }
-//    public static void main(String[] args) throws Exception {
-//        setNewcode();
-//        String code = Integer.toString(getNewcode());
-//        SendSmsResponse sendSms =sendSms("18225310924",code);//填写你需要测试的手机号码
-//        System.out.println("短信接口返回的数据----------------");
-//        System.out.println("Code=" + sendSms.getCode());
-//        System.out.println("Message=" + sendSms.getMessage());
-//        System.out.println("RequestId=" + sendSms.getRequestId());
-//        System.out.println("BizId=" + sendSms.getBizId());
-//    }
 }

@@ -9,4 +9,5 @@ import java.util.List;
 public interface dynamicdao {
     public void adddynamic(dynamic d);
     public List<dynamic> getAllDynamic();
+    public List<dynamic> getDynamicByContent(String content);
 }

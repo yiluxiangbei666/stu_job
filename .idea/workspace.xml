@@ -2,431 +2,215 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e548a3cc-36fc-451a-a911-61603a0f155e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/Autorecommendorstudynamic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/bean/comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/bean/dynamic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/bean/dynamic_love.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/bean/position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/bean/user.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/bean/user_moreinfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/ApplicationContextConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/ElasticSearchClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/Mysecurityconfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/RedisSessionConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/controller/AutorecommendController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/controller/pageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/dao/commentdao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/dao/dynamic_lovedao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/dao/dynamicdao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/commentservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/dynamic_loveservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/dynamicservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/impl/commentserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/impl/dynamic_loveserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/impl/dynamicserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/impl/userserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/stujob_person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/userservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/mapper/commentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/mapper/dynamicMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/mapper/dynamic_loveMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/11111.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225310924head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225310924resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225423788head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225423788resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225502585head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/account.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/blogdb.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/dianzan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/fenxiang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/pinglun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/undefinedresume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/人.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/已点赞.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/毕设开题.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/dynamic.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/recommend.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/META-INF/springcloud_stujob_autorecommendorstudynamic.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/Autorecommendorstudynamic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/bean/comment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/bean/dynamic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/bean/dynamic_love.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/bean/position.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/bean/user.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/bean/user_moreinfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/ApplicationContextConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/ElasticSearchClientConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/Mysecurityconfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/RedisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/RedisSessionConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/controller/AutorecommendController$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/controller/AutorecommendController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/controller/pageController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/dao/commentdao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/dao/dynamic_lovedao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/dao/dynamicdao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/commentservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/dynamic_loveservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/dynamicservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/impl/commentserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/impl/dynamic_loveserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/impl/dynamicserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/impl/userserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/stujob_person.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/userservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/mapper/commentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/mapper/dynamicMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/mapper/dynamic_loveMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/11111.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225310924head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225310924resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225423788head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225423788resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225502585head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/account.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/blogdb.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/dianzan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/fenxiang.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/pinglun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/undefinedresume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/人.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/已点赞.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/毕设开题.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/templates/dynamic.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/templates/recommend.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_eurake7001/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_eurake7001/springcloud_stujob_eurake7001.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_eurake7001/src/main/java/eurake7001/eurake7001.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_eurake7001/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_eurake7001/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_eurake7001/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_eurake7001/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_eurake7001/target/classes/eurake7001/eurake7001.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/apply_record.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/chat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/user.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/user_moreinfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/config/ElasticSearchClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/config/Mysecurityconfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/config/RedisSessionConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/config/WebsocketConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/controller/Chat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/controller/pageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/controller/userController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/dao/apply_recorddao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/dao/chatdao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/dao/userdao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/MyUserDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/apply_recordservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/chatservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/PositionElasticsearchImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/apply_recordserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/chatserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/redisServiceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/userserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/userservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/util/SmsUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/util/fileServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/mapper/apply_recordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/mapper/chatMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/11111.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225310924head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225310924resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225423788head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225423788resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225502585head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225502585resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/account.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/blogdb.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/desktop.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/idea激活码.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/java开发工程师-符官正-吉首大学.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/undefinedresume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/毕设开题.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/img/file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/img/人.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/img/好友详情.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/homepage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/mysubmitrecord.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/positionchart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/META-INF/springcloud_stujob_person.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/mapper/apply_recordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/mapper/chatMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/Test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/apply_record.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/chat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/position.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/subject.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/user.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/user_moreinfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/config/ElasticSearchClientConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/config/Mysecurityconfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/config/RedisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/config/RedisSessionConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/config/WebsocketConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/controller/Chat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/controller/pageController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/controller/userController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/dao/apply_recorddao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/dao/chatdao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/dao/userdao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/person.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/MyUserDetailService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/apply_recordservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/chatservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/PositionElasticsearchImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/apply_recordserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/chatserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/redisServiceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/userserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/userservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/util/SmsUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/util/fileServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/11111.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225310924head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225310924resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225423788head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225423788resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225502585head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225502585resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/account.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/blogdb.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/desktop.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/idea激活码.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/java开发工程师-符官正-吉首大学.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/undefinedresume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/毕设开题.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/img/file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/img/人.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/img/好友详情.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/homepage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/mysubmitrecord.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/positionchart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_plat.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/bean/chat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/bean/subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/bean/user.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/config/ApplicationContextConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/config/ElasticSearchClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/config/Mysecurityconfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/config/RedisSessionConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/controller/Searchorchatcontroller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/controller/pageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/dao/chatdao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/searchorchat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/chatservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/impl/Chatserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/impl/userserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/stujob_person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/userservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/mapper/chatMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/11111.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225310924head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225310924resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225423788head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225423788resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225502585head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225502585resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/account.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/blogdb.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/desktop.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/idea激活码.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/java开发工程师-符官正-吉首大学.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/undefinedresume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/毕设开题.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/img/edit_person.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/img/file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/img/好友详情.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/img/搜索.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/img/联系人.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/templates/charttest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/templates/chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/META-INF/springcloud_stujob_searchorchat.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/mapper/chatMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/bean/chat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/bean/subject.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/bean/user.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/config/ApplicationContextConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/config/ElasticSearchClientConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/config/Mysecurityconfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/config/RedisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/config/RedisSessionConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/controller/Searchorchatcontroller.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/controller/pageController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/dao/chatdao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/searchorchat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/chatservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/impl/Chatserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/impl/userserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/stujob_person.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/userservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/11111.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225310924head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225310924resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225423788head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225423788resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225502585head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225502585resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/account.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/blogdb.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/desktop.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/head.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/idea激活码.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/java开发工程师-符官正-吉首大学.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/undefinedresume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/毕设开题.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/img/edit_person.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/img/file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/img/好友详情.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/img/搜索.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/img/联系人.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/templates/charttest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/templates/chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/bean/apply_record.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/bean/subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/bean/subjectanswer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/bean/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/config/ElasticSearchClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/config/Mysecurityconfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/config/RedisSessionConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/controller/pageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/controller/testController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/dao/apply_recorddao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/dao/testdao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/apply_recordservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/impl/apply_recordserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/impl/testserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/impl/userserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/impl/xslxserviceimpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/testservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/userservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/mapper/apply_recordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/mapper/testMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/addtest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/taketest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/META-INF/springcloud_stujob_test.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/mapper/apply_recordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/mapper/testMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/addtest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/taketest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/bean/apply_record.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/bean/subject.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/bean/subjectanswer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/bean/test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/config/ElasticSearchClientConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/config/Mysecurityconfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/config/RedisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/config/RedisSessionConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/controller/pageController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/controller/testController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/dao/apply_recorddao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/dao/testdao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/apply_recordservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/impl/apply_recordserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/impl/testserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/impl/userserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/impl/xslxserviceimpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/testservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/userservice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/bookmessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/dynamic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/config/AmqpConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/config/ExchangeConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/config/WebConfigure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/interceptor/LoginInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/mybuybookmessageserviceimpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/stu_autorecommendorstudynamic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/stu_searchorchat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/stu_test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/file.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/registry.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/MyAddJobList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/searchAllInfo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/file.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/book.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/bookmessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/dynamic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/config/AmqpConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/config/ExchangeConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/config/WebConfigure.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/interceptor/LoginInterceptor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/mybuybookmessageserviceimpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/stu_autorecommendorstudynamic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/stu_searchorchat.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/stu_test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/registry.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/MyAddJobList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/searchAllInfo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/bean/book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/bean/bookmessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/bean/user.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/config/AmqpConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/config/ApplicationContextConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/config/ExchangeConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/controller/bookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/dao/bookdao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/bookserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/impl/bookserverimpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/impl/redisserviceimpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/stujob_person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/file.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/mapper/bookMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/registry.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/.idea/img.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/HR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/互联网.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/传媒行业.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/外企.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/实习生.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/律师.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/房地产.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/求职笔试.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/英语面试.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/运营.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/银行.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/static/img/面试.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/jobstrategy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/mybookloverecord.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/mybuybookrecord.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/mysalebookrecord.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/file.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/mapper/bookMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/registry.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/.idea/img.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/HR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/互联网.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/传媒行业.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/外企.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/实习生.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/律师.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/房地产.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/求职笔试.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/英语面试.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/运营.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/银行.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/static/img/面试.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/jobstrategy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/mybookloverecord.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/mybuybookrecord.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/mysalebookrecord.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/bean/book.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/bean/bookmessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/bean/user.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/config/AmqpConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/config/ApplicationContextConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/config/ExchangeConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/controller/bookController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/dao/bookdao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/bookserver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/impl/bookserverimpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/impl/redisserviceimpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/service/stujob_person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/bean/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/bean/user.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/Mysecurityconfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/Mysecurityconfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/controller/AutorecommendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/controller/AutorecommendController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/dao/dynamicdao.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/dao/dynamicdao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/dynamicservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/dynamicservice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/impl/dynamicserviceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/service/impl/dynamicserviceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/mapper/dynamicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/mapper/dynamicMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225310924head.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225310924head.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225310924resume.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/static/file/18225310924resume.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/dynamic.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/dynamic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/recommend.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/recommend.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/bean/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/bean/user.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/Mysecurityconfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/Mysecurityconfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/controller/AutorecommendController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/controller/AutorecommendController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/dao/dynamicdao.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/dao/dynamicdao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/dynamicservice.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/dynamicservice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/impl/dynamicserviceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/service/impl/dynamicserviceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/mapper/dynamicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/mapper/dynamicMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225310924head.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225310924head.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225310924resume.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/static/file/18225310924resume.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/templates/dynamic.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/templates/dynamic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/templates/recommend.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_autorecommendorstudynamic/target/classes/templates/recommend.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_eurake7001/springcloud_stujob_eurake7001.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/springcloud_stujob_plat_git.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/bean/user.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/controller/pageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/controller/pageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/controller/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/controller/userController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/dao/userdao.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/dao/userdao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/person.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/PositionElasticsearchImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/PositionElasticsearchImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/redisServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/redisServiceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/userserviceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/impl/userserviceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/userservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/service/userservice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/util/SmsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/java/person/util/SmsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225310924head.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225310924head.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225310924resume.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/static/file/18225310924resume.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/mysubmitrecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/mysubmitrecord.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/positionchart.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates/positionchart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/META-INF/springcloud_stujob_person.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/bean/user.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/controller/pageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/controller/pageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/controller/userController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/controller/userController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/dao/userdao.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/dao/userdao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/person.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/PositionElasticsearchImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/PositionElasticsearchImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/redisServiceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/redisServiceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/userserviceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/impl/userserviceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/userservice.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/person/service/userservice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225310924head.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225310924head.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225310924resume.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/static/file/18225310924resume.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/mysubmitrecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/mysubmitrecord.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/positionchart.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_person/target/classes/templates/positionchart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/bean/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/bean/user.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/config/Mysecurityconfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/config/Mysecurityconfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/controller/Searchorchatcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/controller/Searchorchatcontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/dao/chatdao.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/dao/chatdao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/chatservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/chatservice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/impl/Chatserviceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/java/searchorchat/service/impl/Chatserviceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/mapper/chatMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/mapper/chatMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225310924head.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225310924head.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225310924resume.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/static/file/18225310924resume.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/META-INF/springcloud_stujob_searchorchat.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/mapper/chatMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/mapper/chatMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/bean/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/bean/user.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/config/Mysecurityconfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/config/Mysecurityconfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/controller/Searchorchatcontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/controller/Searchorchatcontroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/dao/chatdao.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/dao/chatdao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/chatservice.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/chatservice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/impl/Chatserviceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/searchorchat/service/impl/Chatserviceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225310924head.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225310924head.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225310924resume.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/static/file/18225310924resume.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_searchorchat/target/classes/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/controller/pageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/controller/pageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/impl/xslxserviceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/service/impl/xslxserviceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/java/test/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/addtest.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/addtest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/taketest.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/src/main/resources/templates/taketest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/addtest.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/addtest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/taketest.html" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/templates/taketest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/controller/pageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/controller/pageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud_stujob_test/target/classes/test/test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -437,8 +221,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -478,11 +262,12 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="js.last.introduce.type" value="VAR" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/springcloud_stujob_person/src/main/resources/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -497,20 +282,20 @@
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="person.bean" />
-      <recent name="autorecommendorstudynamic.bean" />
-      <recent name="test.service.impl" />
-      <recent name="test.service" />
+      <recent name="person.service" />
+      <recent name="person.config" />
+      <recent name="person.interceptor" />
       <recent name="searchorchat.bean" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="J:\框架实验\springcloud_stujob_plat\springcloud_stujob_person\src\main\resources\mapper" />
-      <recent name="J:\框架实验\springcloud_stujob_plat\springcloud_stujob_person\src\main\resources\static\img" />
-      <recent name="J:\框架实验\springcloud_stujob_plat\springcloud_stujob_test\src\main\resources\mapper" />
-      <recent name="J:\框架实验\springcloud_stujob_plat\springcloud_stujob_test\src\main\resources\templates" />
-      <recent name="J:\框架实验\springcloud_stujob_plat\springcloud_stujob_test\src\main\java\test" />
+      <recent name="J:\框架实验\springcloud_stujob_plat_git\springcloud_stujob_person\src\main\resources\templates" />
+      <recent name="J:\框架实验\springcloud_stujob_plat_git\springcloud_stujob_test\src\main\resources\templates" />
+      <recent name="J:\框架实验\springcloud_stujob_plat_git\springcloud_stujob_test\src\main\resources" />
+      <recent name="J:\框架实验\springcloud_stujob_plat_git\springcloud_stujob_person\src\main\resources" />
+      <recent name="J:\框架实验\springcloud_stujob_plat_git\springcloud_stujob_test\src\main\resources\mapper" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Autorecommendorstudynamic">
+  <component name="RunManager" selected="Spring Boot.searchorchat">
     <configuration name="Autorecommendorstudynamic" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="springcloud_stujob_autorecommendorstudynamic" />
       <extension name="coverage">
@@ -565,9 +350,6 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="searchorchat.searchorchat" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateResources" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -589,18 +371,18 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.person" />
+      <item itemvalue="Spring Boot.test" />
       <item itemvalue="Spring Boot.Autorecommendorstudynamic" />
       <item itemvalue="Spring Boot.eurake7001" />
-      <item itemvalue="Spring Boot.person" />
       <item itemvalue="Spring Boot.searchorchat" />
-      <item itemvalue="Spring Boot.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Autorecommendorstudynamic" />
         <item itemvalue="Spring Boot.searchorchat" />
-        <item itemvalue="Spring Boot.test" />
+        <item itemvalue="Spring Boot.Autorecommendorstudynamic" />
         <item itemvalue="Spring Boot.person" />
+        <item itemvalue="Spring Boot.test" />
         <item itemvalue="Spring Boot.eurake7001" />
       </list>
     </recent_temporary>
@@ -663,6 +445,24 @@
       <workItem from="1608952608092" duration="872000" />
       <workItem from="1609223767835" duration="2638000" />
       <workItem from="1609820940705" duration="565000" />
+      <workItem from="1614148772873" duration="19316000" />
+      <workItem from="1614248986842" duration="81915000" />
+      <workItem from="1614516830791" duration="11680000" />
+      <workItem from="1614662460670" duration="5486000" />
+      <workItem from="1614679554689" duration="82000" />
+      <workItem from="1614679875698" duration="390000" />
+      <workItem from="1614682805382" duration="1067000" />
+      <workItem from="1615544089367" duration="11712000" />
+      <workItem from="1615600487892" duration="279000" />
+      <workItem from="1615601606532" duration="17091000" />
+      <workItem from="1615685781558" duration="335000" />
+      <workItem from="1615689379568" duration="14119000" />
+      <workItem from="1615975744373" duration="33000" />
+      <workItem from="1616043431612" duration="4423000" />
+      <workItem from="1616330403942" duration="1420000" />
+      <workItem from="1616478558944" duration="34050000" />
+      <workItem from="1616932992153" duration="236000" />
+      <workItem from="1617005375900" duration="337000" />
     </task>
     <servers />
   </component>
@@ -674,22 +474,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="基于springcloud的在校生兼职服务平台" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="181" key="#Notifications" timestamp="1608014933240">
+    <state x="414" y="178" width="1165" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615791049856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="181" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1608014933240" />
-    <state x="552" y="181" key="#Project_Structure" timestamp="1606440259700">
+    <state x="414" y="178" width="1165" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615791049856" />
+    <state x="720" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614246372244">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="181" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1606440259700" />
-    <state x="414" y="178" width="1165" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608606447219">
+    <state x="720" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1614246372243" />
+    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser" timestamp="1615604117884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="178" width="1165" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608606447219" />
-    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser" timestamp="1608791902255">
+    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1615604117884" />
+    <state x="552" y="387" width="816" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1614152890542">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1608791902255" />
+    <state x="552" y="387" width="816" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1614152890542" />
     <state x="690" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608363356516">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -698,78 +498,78 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="320" y="112" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1609821509321" />
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1609821056398">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1614314445008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609821056398" />
-    <state width="1860" height="254" key="GridCell.Tab.0.bottom" timestamp="1608895997752">
+    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1614314445008" />
+    <state width="1877" height="257" key="GridCell.Tab.0.bottom" timestamp="1616743260905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="254" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608895997752" />
-    <state width="1860" height="254" key="GridCell.Tab.0.center" timestamp="1608895997751">
+    <state width="1877" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616743260905" />
+    <state width="1877" height="257" key="GridCell.Tab.0.center" timestamp="1616743260905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="254" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608895997751" />
-    <state width="1860" height="254" key="GridCell.Tab.0.left" timestamp="1608895997751">
+    <state width="1877" height="257" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616743260905" />
+    <state width="1877" height="257" key="GridCell.Tab.0.left" timestamp="1616743260904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="254" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608895997751" />
-    <state width="1860" height="254" key="GridCell.Tab.0.right" timestamp="1608895997752">
+    <state width="1877" height="257" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616743260904" />
+    <state width="1877" height="257" key="GridCell.Tab.0.right" timestamp="1616743260905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="254" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608895997752" />
-    <state width="1860" height="254" key="GridCell.Tab.1.bottom" timestamp="1608895997753">
+    <state width="1877" height="257" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616743260905" />
+    <state width="1877" height="257" key="GridCell.Tab.1.bottom" timestamp="1616743260906">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="254" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608895997753" />
-    <state width="1860" height="254" key="GridCell.Tab.1.center" timestamp="1608895997753">
+    <state width="1877" height="257" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616743260906" />
+    <state width="1877" height="257" key="GridCell.Tab.1.center" timestamp="1616743260906">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="254" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608895997753" />
-    <state width="1860" height="254" key="GridCell.Tab.1.left" timestamp="1608895997752">
+    <state width="1877" height="257" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616743260906" />
+    <state width="1877" height="257" key="GridCell.Tab.1.left" timestamp="1616743260906">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="254" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608895997752" />
-    <state width="1860" height="254" key="GridCell.Tab.1.right" timestamp="1608895997753">
+    <state width="1877" height="257" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616743260906" />
+    <state width="1877" height="257" key="GridCell.Tab.1.right" timestamp="1616743260906">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="254" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608895997753" />
-    <state x="490" y="178" key="Maven.ArtifactSearchDialog" timestamp="1606440334871">
+    <state width="1877" height="257" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616743260906" />
+    <state x="463" y="165" key="SettingsEditor" timestamp="1615905522898">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="490" y="178" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606440334871" />
-    <state x="463" y="165" key="SettingsEditor" timestamp="1608352860709">
+    <state x="463" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615905522898" />
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2" timestamp="1614581550253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="463" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608352860709" />
-    <state x="652" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1608952608920">
+    <state x="552" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1614581550252" />
+    <state x="652" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1616932992036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="652" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608952608920" />
-    <state x="370" y="290" key="new project wizard" timestamp="1606441606991">
+    <state x="652" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616932992036" />
+    <state x="370" y="290" key="new project wizard" timestamp="1614679623762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="370" y="290" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1606441606991" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1608532024827">
+    <state x="370" y="290" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1614679623762" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1614236324524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608532024827" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608702811574">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614236324524" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1615615577331">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608702811574" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1615615577331" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/templates/chat.html</url>
-          <line>326</line>
+          <line>337</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/springcloud_stujob_searchorchat/src/main/resources/templates/chat.html</url>
-          <line>348</line>
+          <line>359</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

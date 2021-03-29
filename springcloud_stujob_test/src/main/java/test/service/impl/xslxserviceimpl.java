@@ -76,14 +76,6 @@ public class xslxserviceimpl {
         return list;
     }
 
-    /**
-     * 导出excel
-     * @param excel_name 导出的excel路径（需要带.xlsx)
-     * @param headList  excel的标题备注名称
-     * @param fieldList excel的标题字段（与数据中map中键值对应）
-     * @param dataList  excel数据
-     * @throws Exception
-     */
     public void createExcel(String excel_name, String[] headList,
                                    String[] fieldList, List<HashMap<String, String>> dataList)
             throws Exception {

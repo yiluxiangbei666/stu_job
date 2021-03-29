@@ -15,4 +15,21 @@ public class pageController {
     {
         return "taketest";
     }
+    @RequestMapping(value = "jobstrategy")
+    public String jobstrategy()
+    {
+        return "jobstrategy";
+    }
+    @RequestMapping(value = "mybookloverecord")
+    public String mybookloverecord(){
+        return "mybookloverecord";
+    }
+    @RequestMapping(value = "mybuybookrecord")
+    public String mybuybookrecord(){
+        return "mybuybookrecord";
+    }
+    @RequestMapping(value = "mysalebookrecord")
+    public String mysalebookrecord(){
+        return "mysalebookrecord";
+    }
 }

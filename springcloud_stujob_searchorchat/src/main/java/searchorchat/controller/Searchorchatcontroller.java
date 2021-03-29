@@ -88,4 +88,14 @@ public class Searchorchatcontroller {
         }
         return list;
     }
+    @RequestMapping(value = "getchatlistbyuserandcontent")
+    @ResponseBody
+    public List<chat> getchatlistbyuserandcontent(String phone,String content){
+        System.out.println(phone+" "+content);
+        List<chat> chatListByUserAndContent=null;
+        if(phone!=null&&content!=null){
+            chatListByUserAndContent = chatservice.getChatListByUserAndContent(phone, content);
+        }
+        return chatListByUserAndContent;
+    }
 }

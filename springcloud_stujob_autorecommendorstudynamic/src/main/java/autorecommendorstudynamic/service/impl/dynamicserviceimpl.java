@@ -21,4 +21,9 @@ public class dynamicserviceimpl implements dynamicservice {
     public List<dynamic> getAllDynamic() {
         return dynamicdao.getAllDynamic();
     }
+    @Override
+    public List<dynamic> getDynamicByContent(String content) {
+        return dynamicdao.getDynamicByContent(content);
+    }
+
 }

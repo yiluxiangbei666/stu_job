@@ -1,6 +1,7 @@
 package person.controller;
 
 import com.alibaba.druid.util.StringUtils;
+import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import com.aliyuncs.exceptions.ClientException;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
@@ -11,21 +12,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import person.bean.*;
-import person.service.apply_recordservice;
-import person.service.chatservice;
+import person.service.*;
 import person.service.impl.PositionElasticsearchImpl;
 import person.service.impl.redisServiceimpl;
-import person.service.userservice;
 import person.util.SmsUtils;
 import person.util.fileServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 @RequestMapping(value = "user")
@@ -44,6 +42,26 @@ public class userController {
     chatservice cservice;
     @Autowired
     apply_recordservice apply_recordservice;
+    @Autowired
+    person.service.stu_autorecommendorstudynamic stu_autorecommendorstudynamic;
+    @Autowired
+    stu_searchorchat stu_searchorchat;
+
+    @RequestMapping(value = "getkeytip")
+    @ResponseBody
+    public String getkeytipp(){
+        return redisServiceimpl.getkeytip();
+    }
+    @RequestMapping(value = "getDynamicByContent")
+    @ResponseBody
+    public List<dynamic> getDynamicByContent(String content){
+        return stu_autorecommendorstudynamic.getDynamicByContent(content);
+    }
+    @RequestMapping(value = "getchatlistbyuserandcontent")
+    @ResponseBody
+    public List<chat> getchatlistbyuserandcontent(String phone,String content){
+        return stu_searchorchat.getchatlistbyuserandcontent(phone,content);
+    }
     @RequestMapping(value = "getPhoneCode")
     @ResponseBody
     public String getPhoneCode(String phone) throws ClientException {
@@ -83,7 +101,7 @@ public class userController {
     }
     @RequestMapping(value = "getCurrentUser")
     @ResponseBody
-    public String GetCurrentUser(HttpServletRequest request) throws InterruptedException {
+    public String GetCurrentUser(HttpServletRequest request, HttpServletResponse response) throws InterruptedException, IOException {
         String currentUsername = userservice.getCurrentUser();
         HttpSession session = request.getSession();
         String loginphone = (String) session.getAttribute("loginphone");
@@ -179,6 +197,53 @@ public class userController {
         HashSet<String> getpositioninfo = positionElasticsearch.getpositioninfo(position_name, company_name, position_send_time);
         return getpositioninfo;
     }
+    @RequestMapping(value = "getpositionId")
+    @ResponseBody
+    public String getpositionId(String position_name,String company_name,String position_send_time) throws Exception {
+        String s = positionElasticsearch.getpositionId(position_name, company_name, position_send_time);
+        return s;
+    }
+    @RequestMapping(value = "deletePositionById")
+    @ResponseBody
+    public String deletePositionById(String Id) throws Exception {
+        String s = positionElasticsearch.deletePostionById(Id);
+        if(s.equalsIgnoreCase("success")){
+            return "删除成功";
+        }
+        else {
+            return "删除错误";
+        }
+    }
+    @RequestMapping(value = "getPositionByCompanyName")
+    @ResponseBody
+    public List<position> getPositionByCompanyName(String content) throws Exception {
+        System.out.println(content);
+        HashSet<String> positionByCompanyName=null;
+        if(content!=null){
+            positionByCompanyName = positionElasticsearch.getPositionByCompanyName(content);
+        }
+        List<position> positions=new ArrayList<>();
+        for(String s:positionByCompanyName){
+            position position = JSONObject.parseObject(s, position.class);
+            positions.add(position);
+        }
+        return positions;
+    }
+    @RequestMapping(value = "getPositionByPhone")
+    @ResponseBody
+    public List<position> getPositionByPhone(String phone) throws Exception {
+        System.out.println(phone);
+        HashSet<String> positionByCompanyName=null;
+        if(phone!=null){
+            positionByCompanyName = positionElasticsearch.getpositioninfoByPhone(phone);
+        }
+        List<position> positions=new ArrayList<>();
+        for(String s:positionByCompanyName){
+            position position = JSONObject.parseObject(s, position.class);
+            positions.add(position);
+        }
+        return positions;
+    }
     @RequestMapping(value = "getUserList")
     @ResponseBody
     public List<user> getUserList(){
@@ -239,5 +304,14 @@ public class userController {
     -positionElasticsearch.positionchart("产品经理")-positionElasticsearch.positionchart("兼职")));
 
         return lists;
+    }
+    @RequestMapping(value = "getUserByPhoneAndName")
+    @ResponseBody
+    public List<user> getUserByPhoneAndName(String content){
+        List<user> userByPhoneAndName=null;
+        if(content!=null){
+            userByPhoneAndName= userservice.getUserByPhoneAndName(content);
+        }
+        return userByPhoneAndName;
     }
 }

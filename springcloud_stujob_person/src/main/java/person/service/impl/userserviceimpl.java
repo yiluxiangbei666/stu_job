@@ -20,6 +20,12 @@ public class userserviceimpl implements userservice {
 
     @Autowired
     private person.dao.userdao userdao;
+
+    @Override
+    public List<user> getUserByPhoneAndName(String content) {
+        return userdao.getUserByPhoneAndName(content);
+    }
+
     @Override
     public user getUserByPhone(String phone) {
         return userdao.getUserByPhone(phone);
@@ -70,4 +76,6 @@ public class userserviceimpl implements userservice {
     public void update_resume_url(user u) {
         userdao.update_resume_url(u);
     }
+
+
 }

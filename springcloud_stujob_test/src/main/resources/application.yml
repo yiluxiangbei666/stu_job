@@ -1,10 +1,19 @@
 
 spring:
+  application:
+    name: stujob-test
   datasource:
     url: jdbc:mysql://127.0.0.1/stujob_plat?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     driverClassName: com.mysql.jdbc.Driver
     username: root
     password: 123456
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true
+
   redis:
     host: 127.0.0.1
     port: 6379

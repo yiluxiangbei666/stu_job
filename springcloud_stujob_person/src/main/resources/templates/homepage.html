@@ -18,27 +18,27 @@
         var pageSize;
         var keyword;
         $(function () {
-            $.ajax({
-                //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
-                data:{},//向后台controller发送的数据
-                // dataType:"json", //json格式解析返回数据
-                type:"get",
-                url:"/user/getCurrentUser",
-                error:function (XMLHttpRequest, textStatus, errorThrown) {
-                    console.log(XMLHttpRequest.status); //状态码
-                    console.log(XMLHttpRequest.readyState); //状态
-                    console.log(textStatus); //错误信息
-                },
-                success:function (data) {
-                    console.log(data);
-                    if(data!=null){
-                        var phone=data;
-                        $("#loginphone").text(data);
-                        var phone= $("#loginphone").text();
-                        $("input[name='position_send_userphone']").val(phone);
+                $.ajax({
+                    //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
+                    data:{},//向后台controller发送的数据
+                    // dataType:"json", //json格式解析返回数据
+                    type:"get",
+                    url:"/user/getCurrentUser",
+                    error:function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest.status); //状态码
+                        console.log(XMLHttpRequest.readyState); //状态
+                        console.log(textStatus); //错误信息
+                    },
+                    success:function (data) {
+                        console.log(data);
+                        if(data!=null){
+                            var phone=data;
+                            $("#loginphone").text(data);
+                            var phone= $("#loginphone").text();
+                            $("input[name='position_send_userphone']").val(phone);
+                        }
                     }
-                }
-            });
+                });
             $.ajax({
                 //contentType:"application/json;charset=UTF-8",//发送数据以key=value的形式传递
                 data:{},//向后台controller发送的数据
@@ -139,12 +139,12 @@
                             "            </div>";
                         $(".person_left").prepend(position);
                     }
-                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left: 500px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
+                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left:400px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
                     $(".person_left").prepend(addpositionbutton);
                     var searchbutton ="<button onclick=\"search()\" type=\"button\" class=\"btn btn-default\">查询</button>"
                     $(".person_left").prepend(searchbutton);
-                    var position="<span>职位</span>\n" +
-                        "                <input type=\"text\" id=\"searchpositionkey\">";
+                    var position="<span>通过公司或者职位查询</span>\n" +
+                        "                <input type=\"text\" placeholder=\'请输入公司名或职位\' id=\"searchpositionkey\">";
                     $(".person_left").prepend(position);
                 }
             });
@@ -221,12 +221,12 @@
                             "            </div>";
                         $(".person_left").prepend(position);
                     }
-                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left: 500px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
+                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left: 400px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
                     $(".person_left").prepend(addpositionbutton);
                     var searchbutton ="<button onclick=\"search()\" type=\"button\" class=\"btn btn-default\">查询</button>"
                     $(".person_left").prepend(searchbutton);
-                    var position="<span>职位</span>\n" +
-                        "                <input type=\"text\" id=\"searchpositionkey\">";
+                    var position="<span>通过公司或者职位查询</span>\n" +
+                        "                <input type=\"text\" placeholder=\'请输入公司名或职位\' id=\"searchpositionkey\">";
                     $(".person_left").prepend(position);
                     var button="<div style=\"width: 140px;height: 200px;margin-left: 45%;margin-bottom: 50px;\">\n" +
                         "                <button onclick=\"prepage()\" type=\"button\" class=\"btn btn-default\">上一页</button>\n" +
@@ -302,12 +302,12 @@
                             "            </div>";
                         $(".person_left").prepend(position);
                     }
-                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left: 500px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
+                    var addpositionbutton ="<button data-toggle=\"modal\" data-target=\"#myModal\" style=\"margin-left: 400px \" type=\"button\" class=\"btn btn-default\">添加职位信息</button>"
                     $(".person_left").prepend(addpositionbutton);
                     var searchbutton ="<button onclick=\"search()\" type=\"button\" class=\"btn btn-default\">查询</button>"
                     $(".person_left").prepend(searchbutton);
-                    var position="<span>职位</span>\n" +
-                        "                <input type=\"text\" id=\"searchpositionkey\">";
+                    var position="<span>通过公司或者职位查询</span>\n" +
+                        "                <input type=\"text\" placeholder=\'请输入公司名或职位\' id=\"searchpositionkey\">";
                     $(".person_left").prepend(position);
                     var button="<div style=\"width: 140px;height: 200px;margin-left: 45%;margin-bottom: 50px;\">\n" +
                         "                <button onclick=\"prepage()\" type=\"button\" class=\"btn btn-default\">上一页</button>\n" +
@@ -593,10 +593,14 @@
             alert("aa");
             $("#closeuser").click();
         }
+        function searchAllInfo() {
+            var alltip = $("#searchallinfo").val();
+            window.location.href="/searchAllInfo?keytip="+alltip;
+        }
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
@@ -605,12 +609,13 @@
             <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
             <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
             <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
-            <form class="navbar-form navbar-left" role="search">
+            <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8004/jobstrategy">求职攻略</a>
+            <form class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input  id="searchallinfo" type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">提交</button>
             </form>
+            <button style="margin-top: 8px" class="btn btn-default" onclick="searchAllInfo()">提交</button>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li>
@@ -619,8 +624,13 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><a href="/myaddjoblist">我的招聘信息</a></li>
                     <li><a href="http://localhost:8004/addtest">发布测评</a></li>
                     <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                    <li><a href="http://localhost:8001/getmysubmitrecord">个人申请记录</a></li>
+                    <li><a href="http://localhost:8004/mybookloverecord">我的收藏</a></li>
+                    <li><a href="http://localhost:8004/mybuybookrecord">我购买的攻略书籍</a></li>
+                    <li><a href="http://localhost:8004/mysalebookrecord">我卖的攻略书籍</a></li>
                     <li><a href="/logout">退出</a></li>
                 </ul>
             </li>
@@ -731,5 +741,6 @@
                 </div>
         </div>
     </div>
+
 </body>
 </html>

@@ -7,7 +7,7 @@
         select user_id,user_name,phone,password,sex,school,major,resume_url from user
     </select>
     <select id="getUserByPhone"  parameterType="java.lang.String" resultType="person.bean.user">
-        select user_id,user_name,phone,password,sex,school,major,resume_url from user where phone = #{phone}
+        select user_id,user_name,phone,password,sex,school,major,resume_url,money from user where phone = #{phone}
     </select>
     <insert id="savaUser" parameterType="person.bean.user">
         insert into user(user_id,user_name,phone,password,sex,school,major,resume_url)
@@ -43,4 +43,11 @@
         insert into user_moreinfo(user_phone,user_advantage,user_project,user_atschool_experience,user_head_img)
         values(#{user_phone},#{user_advantage},#{user_project},#{user_atschool_experience},#{user_head_img})
     </insert>
+    <update id="update_usermoneybyphone" parameterType="person.bean.user">
+        update user set money=#{money} where phone=#{phone}
+    </update>
+    <select id="getUserByPhoneAndName" resultType="person.bean.user">
+        select user_id,user_name,phone,password,sex,school,major,resume_url from user
+        where user_name like "%"#{content,jdbcType=VARCHAR}"%" or phone like "%"#{content,jdbcType=VARCHAR}"%"
+    </select>
 </mapper>

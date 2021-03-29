@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="742e88ff-40f7-4c4c-8265-350e6a23082e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/互联网.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/传媒行业.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/外企.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/实习生.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/律师.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/房地产.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/求职笔试.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/英语面试.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/运营.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/银行.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/面试.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/Mysecurityconfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/src/main/java/autorecommendorstudynamic/config/Mysecurityconfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/dynamic.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/dynamic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/recommend.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/src/main/resources/templates/recommend.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/target/classes/META-INF/springcloud_stujob_autorecommendorstudynamic.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/Mysecurityconfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/target/classes/autorecommendorstudynamic/config/Mysecurityconfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/target/classes/templates/dynamic.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/target/classes/templates/dynamic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/target/classes/templates/recommend.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_autorecommendorstudynamic/target/classes/templates/recommend.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_eurake7001/springcloud_stujob_eurake7001.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../.idea/springcloud_stujob_plat_git.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/java/person/controller/pageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/java/person/controller/pageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/java/person/controller/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/java/person/controller/userController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/resources/templates/mysubmitrecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/resources/templates/mysubmitrecord.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/resources/templates/positionchart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/src/main/resources/templates/positionchart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/META-INF/springcloud_stujob_person.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/person/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/person/controller/pageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/person/controller/pageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/person/controller/userController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/person/controller/userController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/templates/mysubmitrecord.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/templates/mysubmitrecord.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/templates/positionchart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_person/target/classes/templates/positionchart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/src/main/java/searchorchat/config/Mysecurityconfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/src/main/java/searchorchat/config/Mysecurityconfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/src/main/resources/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/src/main/resources/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/target/classes/META-INF/springcloud_stujob_searchorchat.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/target/classes/searchorchat/config/Mysecurityconfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/target/classes/searchorchat/config/Mysecurityconfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/target/classes/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../springcloud_stujob_searchorchat/target/classes/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/test/controller/pageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../java/test/controller/pageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../templates/addtest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../templates/addtest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../templates/taketest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../templates/taketest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../target/classes/META-INF/springcloud_stujob_test.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../target/classes/templates/addtest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../target/classes/templates/addtest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../target/classes/templates/taketest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../target/classes/templates/taketest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../target/classes/test/controller/pageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../target/classes/test/controller/pageController.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="J:\框架实验\springcloud_stujob_plat_git\springcloud_stujob_test\src\main\resources\static\img\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1p0KDfqNS86RbMHrzJTPUWfTmTk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../Spring_Tx/maimai_new" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="742e88ff-40f7-4c4c-8265-350e6a23082e" name="Default Changelist" comment="" />
+      <created>1614314449634</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614314449634</updated>
+      <workItem from="1614314455956" duration="78000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1614314512701">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1614314512701" />
+  </component>
+</project>

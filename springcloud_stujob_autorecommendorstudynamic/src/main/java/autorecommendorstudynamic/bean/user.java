@@ -11,11 +11,20 @@ public class user implements Serializable {
     private String school;
     private String major;
     private String resume_url;
+    private String money;
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
 
     public user() {
     }
 
-    public user(String user_id, String user_name, String phone, String password, String sex, String school, String major, String resume_url) {
+    public user(String user_id, String user_name, String phone, String password, String sex, String school, String major, String resume_url, String money) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.phone = phone;
@@ -24,6 +33,7 @@ public class user implements Serializable {
         this.school = school;
         this.major = major;
         this.resume_url = resume_url;
+        this.money = money;
     }
 
     public String getUser_id() {

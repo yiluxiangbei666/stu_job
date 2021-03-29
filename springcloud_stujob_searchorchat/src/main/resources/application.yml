@@ -1,5 +1,7 @@
 
 spring:
+  application:
+    name: stujob-searchorchat
   datasource:
     url: jdbc:mysql://127.0.0.1/stujob_plat?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     driverClassName: com.mysql.jdbc.Driver

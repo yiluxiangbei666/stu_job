@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求职攻略</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.8/vue.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        *{
+            padding:0 0;
+            margin:0 0;
+        }
+        li:hover{
+            cursor: pointer;
+        }
+        .main{
+            width:100%;
+            height: 920px;
+            background-color:#F2F4F8;
+        }
+        .message-container-title>span:hover{
+            cursor: pointer;
+        }
+        .message-container>div>div:hover{
+            cursor: pointer;
+            background: gainsboro;
+        }
+        .content{
+            outline: none;
+        }
+        .content:empty:before{
+            content: attr(placeholder);
+            color: darkgrey;
+        }
+        .top_ul>li{
+            float: left;
+            margin-left: 55px;
+        }
+        .demo-div__lazy>div>.thumbnail:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <el-header>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" style="margin-left: 280px" href="http://localhost:8002/recommendpage">推荐</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/index">首页</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/homepage">职位</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8003/chat">聊天</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8002/dynamicpage">动态</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8001/positionchart">职位分析</a>
+                        <a class="navbar-brand" style="margin-left: 10px" href="http://localhost:8004/jobstrategy">求职攻略</a>
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input  id="searchallinfo" type="text" class="form-control" placeholder="Search">
+                            </div>
+                        </form>
+                        <button style="margin-top: 8px" class="btn btn-default" @click="searchAllInfo()">提交</button>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user" id="loginphone">登录</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://localhost:8001/myaddjoblist">我的招聘信息</a></li>
+                                <li><a href="http://localhost:8004/addtest">发布测评</a></li>
+                                <li><a href="http://localhost:8004/taketest">参加测评</a></li>
+                                <li><a href="http://localhost:8001/getmysubmitrecord">个人申请记录</a></li>
+                                <li><a href="http://localhost:8004/mybookloverecord">我的收藏</a></li>
+                                <li><a href="http://localhost:8004/mybuybookrecord">我购买的攻略书籍</a></li>
+                                <li><a href="http://localhost:8004/mysalebookrecord">我卖的攻略书籍</a></li>
+                                <li><a href="/logout">退出</a></li>
+                            </ul>
+                        </li>
+                        <li style="margin-right: 300px"><a href="http://localhost:8001/register"><span class="glyphicon glyphicon-log-in"></span>注册</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </el-header>
+        <el-container style="background: white;width: 1880px;margin: auto">
+            <div style="width: 1330px;height: 850px;background: white;margin: auto">
+                <el-header style="height: 142px">
+                    <div style="margin-left: -20px;width: 103%">
+                        <div style="border: 1px solid skyblue;">
+                            <div style="width: 1100px;height: 40px;background: white;display: inline-block">
+                                <ul class="top_ul">
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">人在职场</span>
+                                    </li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">成功学</span>
+                                    </li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">名人励志</span>
+                                    </li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">技法教程</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">求职面试</span>
+                                    </li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">职场智慧</span>
+                                    </li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">职业规划</span>
+                                    </li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">创业必修</span>
+                                    </li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none">
+                                        <span style="color: blue ;vertical-align: middle;text-align: center">
+                                           <el-dropdown>
+                                          <span class="el-dropdown-link">
+                                            下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+                                          </span>
+                                          <el-dropdown-menu slot="dropdown">
+                                            <el-dropdown-item>黄金糕</el-dropdown-item>
+                                            <el-dropdown-item>更多</el-dropdown-item>
+                                          </el-dropdown-menu>
+                                     </el-dropdown>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="width: 200px;height: 45px;background: powderblue;display: inline-block;float: left">
+                                <span style="font-size: 22px;margin-left: 40px">励志与成功：</span>
+                            </div>
+                        </div>
+                        <div style="border: 1px solid skyblue">
+                            <div style="width: 1100px;height: 40px;background: white;display: inline-block">
+                                <ul class="top_ul">
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">人力资源管理</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">企业管理与培训</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">市场营销</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">电子商务</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">生产与运作管理</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">管理学</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">项目管理</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">财务管理</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">
+                                     <el-dropdown>
+                                          <span class="el-dropdown-link">
+                                            下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+                                          </span>
+                                          <el-dropdown-menu slot="dropdown">
+                                            <el-dropdown-item>黄金糕</el-dropdown-item>
+                                            <el-dropdown-item>更多</el-dropdown-item>
+                                          </el-dropdown-menu>
+                                     </el-dropdown>
+                                     </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="width: 200px;height: 45px;background: powderblue;display: inline-block;float: left">
+                                <span style="font-size: 22px;margin-left: 40px">管理：</span>
+                            </div>
+                        </div>
+                        <div style="border: 1px solid skyblue">
+                            <div style="width: 1100px;height: 40px;background: white;display: inline-block">
+                                <ul class="top_ul">
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">人力资源管理考试</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">散文/书信</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">作品集</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">期刊杂志</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">成功哲学</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">青少年励志</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">行业成功指南</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">心灵鸡汤</span></li>
+                                    <li style="margin-top:5px;width: 60px;height: 37px;list-style: none"><span style="color: blue ;vertical-align: middle;text-align: center">
+                                     <el-dropdown>
+                                          <span class="el-dropdown-link">
+                                            下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+                                          </span>
+                                          <el-dropdown-menu slot="dropdown">
+                                            <el-dropdown-item>黄金糕</el-dropdown-item>
+                                            <el-dropdown-item>更多</el-dropdown-item>
+                                          </el-dropdown-menu>
+                                     </el-dropdown>
+                                     </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="width: 200px;height: 45px;background: powderblue;display: inline-block;float: left">
+                                <span style="font-size: 22px;margin-left: 40px">其他书籍</span>
+                            </div>
+                        </div>
+                    </div>
+                </el-header>
+                <el-container>
+                    <el-aside width="200px" style="border: 3px solid mistyrose;height: 850px">
+                        <div style="width: 100px;margin: auto"><span style="font-size: 24px;color: red">精品推荐</span></div>
+                        <div style="width: 120px;width: 800px">
+                            <div class="row" style="margin: auto">
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="img/互联网.jpg"
+                                             alt="通用的占位符缩略图">
+                                        <div class="caption">
+                                            <p>一些示例文本。一些示例文本。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 120px;width: 800px">
+                            <div class="row" style="margin: auto">
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="img/传媒行业.jpg"
+                                             alt="通用的占位符缩略图">
+                                        <div class="caption">
+                                            <p>一些示例文本。一些示例文本。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 120px;width: 800px">
+                            <div class="row" style="margin: auto">
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="img/外企.jpg"
+                                             alt="通用的占位符缩略图">
+                                        <div class="caption">
+                                            <p>一些示例文本。一些示例文本。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </el-aside>
+                    <el-main style="height:850px;border-right: 1px solid skyblue">
+                        <div class="row">
+                            <div class="demo-div__lazy">
+                                <div v-for="item in bookData" class="col-sm-6 col-md-3" lazy>
+                                    <div class="thumbnail">
+                                        <el-image style="width: 259px;height: 160px" :src="item.bookimg"
+                                                  alt="通用的占位符缩略图"></el-image>
+                                        <div class="caption">
+                                            <h3 style="margin-left: 20px">{{item.bookprice}}</h3>
+                                            <p style="margin-left: 20px">{{item.bookdescribe}}</p>
+                                            <p style="margin-left: 20px;display: none">{{item.bookname}}</p>
+                                            <p style="margin-left: 20px;display: none">{{item.userphone}}</p>
+                                            <p style="margin-left: 20px;display: none">{{item.bookid}}</p>
+                                            <p style="margin-left: 20px">
+                                                <button class="btn btn-default" @click="addmylovebook($event)">
+                                                    收藏
+                                                </button>
+                                                <button class="btn btn-default" @click="buystrategybook($event)">
+                                                    抢购
+                                                </button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <el-dialog title="收货地址" style="width: 1000px; margin: auto" :visible.sync="dialogFormVisible">
+                            <el-container style="height: 290px">
+                                <el-aside width="200px">
+                                    <img :src="buybookimg" alt="通用的占位符缩略图" style="width: 200px;height: 210px">
+                                    <span v-html="buybookprice" style="font-size: 22px;color: red;margin-left: 35px"></span>
+                                </el-aside>
+                                <el-main>
+                                    <span v-html="buybookid" style="display: none"></span>
+                                    <div class="block">
+                                        <span class="demonstration">请填写您的购买信息</span>
+                                        <el-cascader
+                                                v-model="value"
+                                                :options="options"
+                                                @change="handleChange"></el-cascader>
+                                    </div>
+                                    <el-input
+                                            placeholder="请输入账号"
+                                            v-model="accountnumber"
+                                            clearable>
+                                    </el-input>
+                                    <el-input placeholder="请输入账号密码" v-model="accountpassword" show-password></el-input>
+                                    <el-input
+                                            type="textarea"
+                                            :rows="2"
+                                            placeholder="填写您的收货地址"
+                                            v-model="myaddress">
+                                    </el-input>
+                                    <el-button @click="dialogFormVisible = false">取 消</el-button>
+                                    <el-button type="primary" @click="buybook($event)">确 定</el-button>
+                                </el-main>
+                            </el-container>
+                        </el-dialog>
+                    </el-main>
+                </el-container>
+            </div>
+        </el-container>
+    </div>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            searchinput: '',
+            bookData:[],
+            dialogFormVisible: false,
+            buybookimg: '',
+            buybookprice: '',
+            buybookid:'',
+            accountnumber:'',
+            accountpassword:'',
+            myaddress:'',
+            value: [],
+            options: [{
+                value: 'zhinan',
+                label: '微信',
+                children: [{
+                    value: 'shejiyuanze',
+                    label: '支付方式',
+                    children: [{
+                        value: '指纹',
+                        label: '指纹'
+                    }, {
+                        value: '密码',
+                        label: '密码'
+                    }, {
+                        value: '刷脸',
+                        label: '刷脸'
+                    }]
+                }]
+            }, {
+                value: 'zujian',
+                label: '支付宝',
+                children: [{
+                    value: 'basic',
+                    label: '支付方式',
+                    children: [{
+                        value: '指纹',
+                        label: '指纹'
+                    }, {
+                        value: '密码',
+                        label: '密码'
+                    }, {
+                        value: '刷脸',
+                        label: '刷脸'
+                    }]
+                }]
+            }
+            ]
+        },
+        created(){
+
+        },
+        mounted:function(){
+            this.getbooks();
+        },
+        methods:{
+            searchAllInfo() {
+                var alltip = $("#searchallinfo").val();
+                window.location.href="http://localhost:8001/searchAllInfo?keytip="+alltip;
+            },
+            async getbooks(){
+                await axios.get('/test/getCurrentUser', {}).then(function (response) {
+                    $("#loginphone").text(response.data);
+                }).catch(function (error) {
+                    console.log(error)
+                });
+                let result=await axios({
+                    method: 'get',
+                    url: '/book/searchbooks',
+                    data:''
+                });
+                for(let i=0;i<result.data.length;i++){
+                    let obj=new Object();
+                    obj.bookid=result.data[i].bookid;
+                    obj.userphone=result.data[i].userphone;
+                    obj.bookname=result.data[i].bookname;
+                    obj.bookdescribe=result.data[i].bookdescribe;
+                    obj.bookprice=result.data[i].bookprice;
+                    obj.bookimg=result.data[i].bookimg;
+                    obj.booknumber=result.data[i].booknumber;
+                    this.bookData.push(obj);
+                }
+                console.log(this.bookData);
+            },
+            async addmylovebook(e){
+                var parent= e.currentTarget.parentElement.parentElement;
+                var myphone=$("#loginphone").html();
+                var bookprice = parent.children[0].innerHTML;
+                var bookdescribe = parent.children[1].innerHTML;
+                var bookname = parent.children[2].innerHTML;
+                var userphone = parent.children[3].innerHTML;
+                console.log(bookprice+" "+bookname+" "+bookdescribe+" "+userphone+" "+myphone);
+                var result = await axios.get('/book/addtoloverecord?userphone=' + userphone + '&bookname=' +
+                    bookname + '&bookdescribe=' + bookdescribe + '&bookprice=' + bookprice+'&myphone='+myphone);
+                alert(result.data);
+            },
+            buystrategybook(e){
+                this.dialogFormVisible=true;
+                var parent= e.currentTarget.parentElement.parentElement.parentElement;
+                var imgpath=parent.children[0].children[0].src;
+                var bookprice=parent.children[1].children[0].innerHTML;
+                var bookid=parent.children[1].children[4].innerHTML;
+                console.log(imgpath+" "+bookid);
+                this.buybookimg=imgpath;
+                this.buybookid=bookid;
+                this.buybookprice="价格:"+bookprice;
+            },
+            handleChange(value) {
+                console.log(value);
+            },
+            async buybook(e){
+                var parent= e.currentTarget.parentElement;
+                var bookid=parent.children[0].innerHTML;
+                var accountnumber=this.accountnumber;
+                var accountpassword=this.accountpassword;
+                var myaddress=this.myaddress;
+                var result = await axios.get('/book/buybook?bookid=' + bookid + '&accountnumber=' +
+                    accountnumber + '&accountpassword=' + accountpassword + '&myaddress=' + myaddress);
+                if(result.data=="购买成功,稍后商家发货"){
+                    this.dialogFormVisible = false;
+                    alert(result.data);
+                }
+                else {
+                    alert(result.data);
+                }
+            }
+        }
+    })
+</script>
+</html>

@@ -8,4 +8,5 @@ import java.util.List;
 public interface chatservice {
     public HashSet<String> getchatListbysendUser(String sendUser);
     public HashSet<String> getchatListbysendedUser(String sendedUser);
+    List<chat> getChatListByUserAndContent(String phone,String content);
 }

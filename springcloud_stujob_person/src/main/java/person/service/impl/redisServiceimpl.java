@@ -17,4 +17,7 @@ public class redisServiceimpl {
     public String getphonecode(String phone){
         return (String)redisTemplate.opsForValue().get(phone);
     }
+    public String getkeytip(){
+        return  (String)redisTemplate.opsForValue().get("searchAllKey");
+    }
 }

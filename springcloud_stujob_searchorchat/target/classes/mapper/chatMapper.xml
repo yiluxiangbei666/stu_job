@@ -9,4 +9,9 @@
     <select id="getchatListbysendedUser" parameterType="java.lang.String" resultType="java.lang.String">
         select chat_user_id from chat where chat_usered_id=#{chat_usered_id}
     </select>
+    <select id="getChatListByUserAndContent" resultType="searchorchat.bean.chat">
+        select * from chat where
+        (chat_send_content like "%"#{content,jdbcType=VARCHAR}"%" and chat_user_id=#{phone})
+        or (chat_send_content like "%"#{content,jdbcType=VARCHAR}"%" and chat_usered_id=#{phone})
+    </select>
 </mapper>

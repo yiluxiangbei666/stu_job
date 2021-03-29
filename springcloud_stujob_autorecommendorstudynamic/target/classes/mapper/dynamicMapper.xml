@@ -11,4 +11,8 @@
     <select id="getAllDynamic" resultType="autorecommendorstudynamic.bean.dynamic">
         select dynamic_id,dynamic_user_id,dynamic_content,dynamic_image_url,dynamic_send_time from dynamic;
     </select>
+    <select id="getDynamicByContent" resultType="autorecommendorstudynamic.bean.dynamic">
+        select dynamic_id,dynamic_user_id,dynamic_content,dynamic_image_url,dynamic_send_time from dynamic
+        where dynamic_content like "%"#{content,jdbcType=VARCHAR}"%"
+    </select>
 </mapper>

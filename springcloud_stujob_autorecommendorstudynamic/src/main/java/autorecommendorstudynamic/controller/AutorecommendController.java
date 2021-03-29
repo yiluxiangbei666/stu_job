@@ -151,4 +151,13 @@ public class AutorecommendController {
         }
         return positions;
     }
+    @RequestMapping(value = "getDynamicByContent")
+    @ResponseBody
+    public List<dynamic> getDynamicByContent(String content){
+        List<dynamic> dynamicByContent=null;
+        if(content!=null){
+           dynamicByContent = dynamicservice.getDynamicByContent(content);
+        }
+        return dynamicByContent;
+    }
 }

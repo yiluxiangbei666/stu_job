@@ -9,14 +9,15 @@ import java.util.List;
 
 @Mapper
 public interface userdao {
-    public user getUserByPhone(String phone);
-
+    user getUserByPhone(String phone);
+    List<user> getUserByPhoneAndName(String content);
     void savaUser(user u);
-    public user_moreinfo getUserInfoByPhone(String phone);
-    public void setUserHeadImg(user_moreinfo u);
-    public void update_resume_url(user u);
-    public void update_user(user u);
-    public void update_user_info(user_moreinfo user_more);
-    public void insertuser_info(user_moreinfo user_info);
-    public List<user> getUserList();
+    user_moreinfo getUserInfoByPhone(String phone);
+    void setUserHeadImg(user_moreinfo u);
+    void update_resume_url(user u);
+    void update_user(user u);
+    void update_user_info(user_moreinfo user_more);
+    void insertuser_info(user_moreinfo user_info);
+    List<user> getUserList();
+    void update_usermoneybyphone(user u);
 }

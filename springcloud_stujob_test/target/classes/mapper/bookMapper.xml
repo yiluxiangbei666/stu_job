@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.dao.bookdao">
+    <select id="getBooks" resultType="test.bean.book" >
+        select bookid,userphone,bookname,bookdescribe,bookprice,bookimg,booknumber from job_strategy;
+    </select>
+    <insert id="insertbook_to_loverecord" parameterType="test.bean.book" >
+        insert into bookloverecord(addloveid,userphone,bookname,bookprice,myphone)
+        values (#{bookid},#{userphone},#{bookname},#{bookprice},#{bookimg})
+    </insert>
+    <resultMap id="loverecordmap" type="test.bean.book">
+        <id property="bookid" column="addloveid" />
+
+        <!-- 定义普通属性 -->
+        <result property="userphone" column="userphone" />
+        <result property="bookimg" column="myphone" />
+        <result property="bookname" column="bookname" />
+        <result property="bookprice" column="bookprice" />
+    </resultMap>
+    <select id="getaddloverecord" resultMap="loverecordmap" resultType="test.bean.book" parameterType="test.bean.book">
+        select addloveid,userphone,myphone,bookname,bookprice from bookloverecord where
+        userphone=#{userphone} and myphone=#{bookimg} and bookname=#{bookname}
+    </select>
+    <select id="getBooksBymyPhone" resultMap="loverecordmap"  parameterType="java.lang.String" resultType="test.bean.book">
+        select addloveid,userphone,myphone,bookprice,bookname from bookloverecord where myphone =#{myphone};
+    </select>
+    <select id="getBooknumberById" parameterType="java.lang.String" resultType="test.bean.book">
+        select bookimg,bookprice,bookdescribe,bookname,userphone,bookid,booknumber from job_strategy where bookid=#{bookid};
+    </select>
+    <update id="reduceonebookbybookid" parameterType="java.lang.String">
+        update job_strategy set booknumber = booknumber-1 where bookid =#{bookid};
+    </update>
+    <insert id="addBuybookrecord" parameterType="test.bean.book">
+        insert into buybookrecord(buybookid,buybookuserphone,buybookmyphone,buybookname,buybookprice)
+        values (#{bookid},#{userphone},#{bookimg},#{bookname},#{bookprice})
+    </insert>
+
+    <resultMap id="buybooksrecord" type="test.bean.book">
+        <id property="bookid" column="buybookid" />
+
+        <!-- 定义普通属性 -->
+        <result property="userphone" column="buybookuserphone" />
+        <result property="bookimg" column="buybookmyphone" />
+        <result property="bookname" column="buybookname" />
+        <result property="bookprice" column="buybookprice" />
+    </resultMap>
+    <select id="getbuybooksbyPhone" resultMap="buybooksrecord" resultType="test.bean.book" parameterType="java.lang.String">
+        select buybookid,buybookuserphone,buybookmyphone,buybookname,buybookprice
+        from buybookrecord where buybookmyphone like #{phone,jdbcType=VARCHAR}"%"
+    </select>
+    <select id="getsalebooksbyPhone" resultMap="buybooksrecord" resultType="test.bean.book" parameterType="java.lang.String">
+        select buybookid,buybookuserphone,buybookmyphone,buybookname,buybookprice
+        from buybookrecord where buybookuserphone =#{phone};
+    </select>
+</mapper>
